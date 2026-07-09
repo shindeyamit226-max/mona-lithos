@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona Modern — Where Stars Are Made</title>
+    <meta name="description" content="Mona Modern English Medium School, Sarangarh. CBSE affiliated. 4000+ students. 97% toppers. Admissions open 2026-27.">
+    <meta property="og:title" content="Mona Modern Eng. Med. School, Sarangarh">
+    <meta property="og:description" content="Where Stars Are Made. CBSE affiliated school in Sarangarh, Chhattisgarh.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#050510">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════
+           NOT A TEMPLATE. This is an EXPERIENCE.
+           Every choice answers: "Why is this here?"
+           
+           DESIGN LANGUAGE: Cosmic Dark
+           - Deep void blacks (not safe navy)
+           - Electric gold that BREATHES
+           - Typography that COMMANDS attention
+           - Motion that tells a STORY
+           - Layout that BREAKS expectations
+           ═══════════════════════════════════════════════════ */
+
+        :root {
+            --void: #050510;
+            --void-light: #0a0a1a;
+            --surface: #0d0d20;
+            --surface-raised: #12122a;
+            --gold: #e8c36a;
+            --gold-bright: #f5e6a8;
+            --gold-dim: #b8943f;
+            --electric: #4a9eff;
+            --electric-dim: #2a6bc4;
+            --coral: #ff6b6b;
+            --mint: #4ecdc4;
+            --text: #e8e8f0;
+            --text-dim: #7a7a9a;
+            --text-muted: #4a4a6a;
+            --glass: rgba(255,255,255,0.03);
+            --glass-heavy: rgba(255,255,255,0.06);
+            --glass-border: rgba(255,255,255,0.06);
+            --glow-gold: 0 0 40px rgba(232,195,106,0.15);
+            --glow-electric: 0 0 40px rgba(74,158,255,0.15);
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --font-body: 'Space Grotesk', system-ui, sans-serif;
+            --font-mono: 'DM Mono', 'Courier New', monospace;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{font-size:16px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--gold-dim) var(--void)}
+        ::-webkit-scrollbar{width:4px}
+        ::-webkit-scrollbar-track{background:var(--void)}
+        ::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px}
+        body{font-family:var(--font-body);color:var(--text);background:var(--void);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+        ::selection{background:var(--gold);color:var(--void)}
+        a{color:inherit;text-decoration:none}
+        button,input,textarea,select{font:inherit;border:none;background:none;color:inherit}
+        img,svg{max-width:100%;display:block}
+
+        /* ═══════ LOADING SCREEN ═══════ */
+        .loader{position:fixed;inset:0;background:var(--void);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s, visibility 0.6s}
+        .loader.done{opacity:0;visibility:hidden;pointer-events:none}
+        .loader-text{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);color:var(--gold);overflow:hidden}
+        .loader-text span{display:inline-block;animation:loaderReveal 0.6s var(--ease-out-expo) forwards;opacity:0;transform:translateY(100%)}
+        @keyframes loaderReveal{to{opacity:1;transform:translateY(0)}}
+        .loader-bar{width:200px;height:2px;background:var(--surface);margin-top:2rem;border-radius:1px;overflow:hidden}
+        .loader-bar-fill{height:100%;background:var(--gold);width:0%;animation:loaderFill 1.8s var(--ease-out-expo) forwards}
+        @keyframes loaderFill{to{width:100%}}
+
+        /* ═══════ NOISE TEXTURE OVERLAY ═══════ */
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.015;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+
+        /* ═══════ SCROLL PROGRESS ═══════ */
+        .progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:99999;width:0;transition:width 50ms}
+
+        /* ═══════ CURSOR ═══════ */
+        .cursor{position:fixed;width:20px;height:20px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transition:width 0.3s var(--ease-spring),height 0.3s var(--ease-spring),border-color 0.3s;transform:translate(-50%,-50%);mix-blend-mode:difference}
+        .cursor.hover{width:50px;height:50px;border-color:var(--electric)}
+        .cursor-dot{position:fixed;width:4px;height:4px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
+
+        /* ═══════ NAVIGATION ═══════ */
+        .nav{position:fixed;top:0;left:0;right:0;z-index:9990;padding:1.5rem 0;transition:all 0.5s var(--ease-out-expo)}
+        .nav.scrolled{padding:0.75rem 0;background:rgba(5,5,16,0.85);backdrop-filter:blur(30px) saturate(200%);border-bottom:1px solid var(--glass-border)}
+        .nav-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{display:flex;align-items:center;gap:1rem;cursor:pointer}
+        .nav-logo-mark{width:44px;height:44px;position:relative}
+        .nav-logo-mark svg{width:100%;height:100%}
+        .nav-logo-name{font-family:var(--font-display);font-size:1.2rem;line-height:1.1}
+        .nav-logo-name small{display:block;font-family:var(--font-body);font-size:0.55rem;font-weight:500;color:var(--text-muted);letter-spacing:0.25em;text-transform:uppercase;margin-top:2px}
+        .nav-links{display:flex;align-items:center;gap:0}
+        .nav-links a{padding:0.6rem 1.2rem;font-size:0.8rem;font-weight:500;color:var(--text-dim);letter-spacing:0.03em;position:relative;transition:color 0.3s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-links a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:1px;background:var(--gold);transition:all 0.3s var(--ease-out-expo);transform:translateX(-50%)}
+        .nav-links a:hover::after{width:60%}
+        .nav-admission{margin-left:1rem;padding:0.6rem 1.6rem;background:var(--gold);color:var(--void);font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:100px;transition:all 0.3s var(--ease-spring);cursor:pointer}
+        .nav-admission:hover{transform:scale(1.05);box-shadow:var(--glow-gold)}
+        .nav-mobile-btn{display:none;cursor:pointer;padding:0.5rem}
+
+        /* ═══════ HERO — THE ENTRANCE MOMENT ═══════
+           NOT a full-screen image with overlaid text.
+           Instead: PURE TYPOGRAPHY as the hero.
+           The words themselves ARE the design. */
+        .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:8rem}
+        .hero-bg{position:absolute;inset:0;z-index:0}
+        .hero-gradient{position:absolute;width:800px;height:800px;border-radius:50%;filter:blur(120px);opacity:0.12}
+        .hero-gradient-1{top:-200px;right:-200px;background:var(--gold);animation:float1 20s ease-in-out infinite}
+        .hero-gradient-2{bottom:-300px;left:-200px;background:var(--electric);animation:float2 25s ease-in-out infinite}
+        @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,60px)}}
+        @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-80px)}}
+
+        .hero-grid-lines{position:absolute;inset:0;background-image:
+            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size:80px 80px;mask-image:radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%)}
+
+        .hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);width:100%}
+        .hero-eyebrow{display:inline-flex;align-items:center;gap:0.75rem;font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fadeSlideUp 0.8s 0.3s var(--ease-out-expo) forwards}
+        .hero-eyebrow-line{width:40px;height:1px;background:var(--gold)}
+        @keyframes fadeSlideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+        /* THE HERO TEXT — This is the design element.
+           Not an image. Not a video. THE WORDS. */
+        .hero-title{font-family:var(--font-display);font-size:clamp(3.5rem,9vw,9rem);font-weight:400;line-height:0.95;margin-bottom:2rem;letter-spacing:-0.03em}
+        .hero-title .word{display:block;overflow:hidden}
+        .hero-title .word span{display:inline-block;transform:translateY(110%);animation:wordReveal 1s var(--ease-out-expo) forwards}
+        .hero-title .word:nth-child(1) span{animation-delay:0.4s}
+        .hero-title .word:nth-child(2) span{animation-delay:0.55s}
+        .hero-title .word:nth-child(3) span{animation-delay:0.7s}
+        @keyframes wordReveal{to{transform:translateY(0)}}
+        .hero-title .italic{font-style:italic;color:var(--gold)}
+        .hero-title .outline{-webkit-text-stroke:1.5px var(--text);color:transparent}
+
+        .hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;margin-top:3rem;opacity:0;animation:fadeSlideUp 0.8s 0.9s var(--ease-out-expo) forwards}
+        .hero-desc{max-width:420px;font-size:1rem;color:var(--text-dim);line-height:1.8}
+        .hero-actions{display:flex;gap:1rem;flex-shrink:0}
+        .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2rem;font-weight:600;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.4s var(--ease-spring);position:relative;overflow:hidden}
+        .btn-gold{background:var(--gold);color:var(--void);border-radius:100px}
+        .btn-gold:hover{transform:scale(1.05);box-shadow:var(--glow-gold)}
+        .btn-ghost{color:var(--text);border:1px solid var(--glass-border);border-radius:100px;padding:1rem 2rem}
+        .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+        /* ═══════ STATS — BROKEN GRID ═══════
+           Instead of a boring row of numbers,
+           stats are STAGGERED and OVERLAPPING */
+        .stats{padding:clamp(4rem,8vw,8rem) 0;position:relative;z-index:2}
+        .stats-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+        .stat{padding:2rem;text-align:center;border:1px solid var(--glass-border);position:relative;transition:all 0.5s var(--ease-out-expo)}
+        .stat:hover{background:var(--glass);border-color:rgba(232,195,106,0.15)}
+        .stat:nth-child(even){transform:translateY(2rem)}
+        .stat-number{font-family:var(--font-mono);font-size:clamp(2rem,4vw,3.5rem);font-weight:500;color:var(--gold);line-height:1}
+        .stat-label{font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.2em;margin-top:0.5rem}
+
+        /* ═══════ ABOUT — SPLIT WITH FLOATING QUOTE ═══════ */
+        .about{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
+        .about-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+        .about-left{position:relative}
+        .about-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+        .about-tag::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+        .about-heading{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;margin-bottom:2rem}
+        .about-text{color:var(--text-dim);line-height:1.9;margin-bottom:2rem;font-size:0.95rem}
+        .about-values{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--glass-border)}
+        .about-value{background:var(--void);padding:1.5rem;transition:all 0.4s var(--ease-out-expo)}
+        .about-value:hover{background:var(--surface)}
+        .about-value-num{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);margin-bottom:0.5rem}
+        .about-value h4{font-size:0.85rem;font-weight:600;margin-bottom:0.25rem}
+        .about-value p{font-size:0.75rem;color:var(--text-muted);line-height:1.5}
+
+        /* FLOATING QUOTE — breaks the grid, overlaps */
+        .about-right{position:relative}
+        .about-quote-card{background:var(--surface);border:1px solid var(--glass-border);border-radius:2px;padding:3rem;position:relative;transform:rotate(-1deg);transition:all 0.6s var(--ease-out-expo)}
+        .about-quote-card:hover{transform:rotate(0deg);border-color:rgba(232,195,106,0.15)}
+        .about-quote-mark{font-family:var(--font-display);font-size:6rem;color:var(--gold);opacity:0.15;position:absolute;top:0.5rem;left:1.5rem;line-height:1}
+        .about-quote{font-family:var(--font-display);font-style:italic;font-size:1.3rem;line-height:1.6;color:var(--text);margin-bottom:1.5rem;position:relative;z-index:1}
+        .about-quote-author{font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em}
+        .about-float-badge{position:absolute;top:-1.5rem;right:-1.5rem;background:var(--gold);color:var(--void);font-family:var(--font-mono);font-size:0.65rem;font-weight:700;padding:0.5rem 1rem;letter-spacing:0.1em;text-transform:uppercase;animation:float 3s ease-in-out infinite}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+        /* ═══════ TOPPERS — DIAGONAL REVEAL ═══════
+           Cards are arranged in a STAGGERED pattern,
+           not a boring grid. */
+        .toppers{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
+        .toppers-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .toppers-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
+        .toppers-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);line-height:1}
+        .toppers-title .year{font-family:var(--font-mono);font-size:0.5em;color:var(--gold);display:block;margin-top:0.5rem}
+        .toppers-tabs{display:flex;gap:0}
+        .toppers-tab{padding:0.7rem 1.5rem;font-size:0.75rem;font-weight:600;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid var(--glass-border);transition:all 0.3s}
+        .toppers-tab:first-child{border-radius:100px 0 0 100px}
+        .toppers-tab:last-child{border-radius:0 100px 100px 0}
+        .toppers-tab.active{background:var(--gold);color:var(--void);border-color:var(--gold)}
+
+        .toppers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--glass-border)}
+        .topper{background:var(--void);padding:1.75rem;text-align:center;transition:all 0.5s var(--ease-out-expo);position:relative;cursor:default}
+        .topper:hover{background:var(--surface);z-index:2}
+        .topper-rank{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:0.75rem}
+        .topper-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--surface-raised),var(--surface));border:1px solid var(--glass-border);margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all 0.4s var(--ease-spring)}
+        .topper:hover .topper-avatar{transform:scale(1.1);border-color:var(--gold);box-shadow:var(--glow-gold)}
+        .topper-name{font-family:var(--font-display);font-size:1.05rem;margin-bottom:0.25rem}
+        .topper-score{font-family:var(--font-mono);font-size:1.6rem;font-weight:500;color:var(--gold)}
+        .topper-class{font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-top:0.25rem}
+        .topper-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);transition:width 0.8s var(--ease-out-expo);width:0}
+        .topper:hover .topper-bar{width:100%}
+
+        /* ═══════ EVENTS — TIMELINE LAYOUT ═══════
+           Not cards in a grid. A VERTICAL TIMELINE
+           that tells the story of the school year. */
+        .events{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;background:var(--surface)}
+        .events-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .events-header{text-align:center;margin-bottom:4rem}
+        .events-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .events-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
+
+        .timeline{position:relative;max-width:800px;margin:0 auto}
+        .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--glass-border),var(--gold),var(--glass-border),transparent);transform:translateX(-50%)}
+        .timeline-item{display:flex;align-items:flex-start;gap:3rem;margin-bottom:3rem;position:relative}
+        .timeline-item:nth-child(even){flex-direction:row-reverse}
+        .timeline-dot{position:absolute;left:50%;top:1.5rem;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateX(-50%);z-index:2;box-shadow:var(--glow-gold)}
+        .timeline-content{flex:1;padding:2rem;background:var(--void);border:1px solid var(--glass-border);transition:all 0.4s var(--ease-out-expo);cursor:default}
+        .timeline-content:hover{border-color:rgba(232,195,106,0.15);transform:translateY(-3px)}
+        .timeline-date{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:0.75rem}
+        .timeline-title{font-family:var(--font-display);font-size:1.2rem;margin-bottom:0.5rem}
+        .timeline-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
+        .timeline-link{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:600;color:var(--gold);margin-top:0.75rem;letter-spacing:0.05em;text-transform:uppercase;transition:gap 0.3s}
+        .timeline-link:hover{gap:0.6rem}
+        .timeline-spacer{flex:1}
+
+        /* ═══════ FACILITIES — BENTO GRID ═══════
+           Not equal-sized cards. A BENTO BOX layout
+           where items have DIFFERENT sizes. */
+        .facilities{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2}
+        .facilities-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .facilities-header{text-align:center;margin-bottom:4rem}
+        .facilities-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .facilities-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
+
+        .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:1px;background:var(--glass-border)}
+        .bento-item{background:var(--void);padding:2.5rem;transition:all 0.5s var(--ease-out-expo);position:relative;overflow:hidden;cursor:default}
+        .bento-item:hover{background:var(--surface)}
+        .bento-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.5s var(--ease-out-expo);transform-origin:left}
+        .bento-item:hover::before{transform:scaleX(1)}
+        .bento-item:nth-child(1){grid-column:span 2;grid-row:span 2;padding:3.5rem}
+        .bento-item:nth-child(4){grid-column:span 2}
+        .bento-icon{font-size:2rem;margin-bottom:1rem;transition:transform 0.4s var(--ease-spring)}
+        .bento-item:hover .bento-icon{transform:scale(1.15) rotate(-5deg)}
+        .bento-title{font-family:var(--font-display);font-size:1.1rem;margin-bottom:0.5rem}
+        .bento-item:nth-child(1) .bento-title{font-size:1.5rem}
+        .bento-desc{font-size:0.8rem;color:var(--text-dim);line-height:1.6}
+        .bento-num{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);letter-spacing:0.1em}
+
+        /* ═══════ ADMISSION — SPLIT WITH GLASS FORM ═══════ */
+        .admission{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
+        .admission-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--surface),var(--void-light),var(--surface))}
+        .admission-bg::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:var(--gold);filter:blur(200px);opacity:0.04;top:-200px;right:-100px}
+        .admission-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+        .admission-left .admission-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1.5rem}
+        .admission-heading{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;margin-bottom:1.5rem}
+        .admission-text{color:var(--text-dim);line-height:1.8;margin-bottom:2rem;max-width:450px}
+        .admission-checks{display:flex;flex-direction:column;gap:0.75rem}
+        .admission-check{display:flex;align-items:center;gap:0.75rem;font-size:0.85rem;color:var(--text-dim)}
+        .admission-check-icon{width:20px;height:20px;border-radius:50%;background:rgba(232,195,106,0.1);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--gold);flex-shrink:0}
+
+        .admission-form{background:var(--surface);border:1px solid var(--glass-border);padding:2.5rem;position:relative}
+        .admission-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--electric),var(--gold))}
+        .form-title{font-family:var(--font-display);font-size:1.5rem;margin-bottom:0.5rem}
+        .form-subtitle{font-size:0.8rem;color:var(--text-muted);margin-bottom:2rem}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        .form-group{margin-bottom:1.25rem}
+        .form-label{display:block;font-size:0.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
+        .form-input{width:100%;padding:0.9rem 1rem;background:var(--void);border:1px solid var(--glass-border);color:var(--text);font-size:0.9rem;transition:all 0.3s;outline:none}
+        .form-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,195,106,0.1)}
+        .form-input::placeholder{color:var(--text-muted)}
+        textarea.form-input{resize:vertical;min-height:90px}
+        .form-submit{width:100%;padding:1rem;background:var(--gold);color:var(--void);font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-spring);margin-top:0.5rem}
+        .form-submit:hover{transform:scale(1.02);box-shadow:var(--glow-gold)}
+
+        /* ═══════ GALLERY — DIAGONAL STRIP ═══════ */
+        .gallery{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
+        .gallery-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .gallery-header{text-align:center;margin-bottom:4rem}
+        .gallery-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .gallery-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
+
+        .gallery-strip{display:flex;gap:1rem;overflow-x:auto;padding:2rem 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+        .gallery-strip::-webkit-scrollbar{display:none}
+        .gallery-card{flex-shrink:0;width:300px;height:380px;scroll-snap-align:start;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;transition:all 0.5s var(--ease-out-expo)}
+        .gallery-card:hover{transform:translateY(-8px)}
+        .gallery-card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;transition:transform 0.5s var(--ease-out-expo)}
+        .gallery-card:hover .gallery-card-bg{transform:scale(1.1)}
+        .gallery-card:nth-child(1) .gallery-card-bg{background:linear-gradient(135deg,#1a1a3e,#0a0a2a)}
+        .gallery-card:nth-child(2) .gallery-card-bg{background:linear-gradient(135deg,#2a1a1a,#1a0a0a)}
+        .gallery-card:nth-child(3) .gallery-card-bg{background:linear-gradient(135deg,#1a2a1a,#0a1a0a)}
+        .gallery-card:nth-child(4) .gallery-card-bg{background:linear-gradient(135deg,#1a1a2a,#0a0a1a)}
+        .gallery-card:nth-child(5) .gallery-card-bg{background:linear-gradient(135deg,#2a2a1a,#1a1a0a)}
+        .gallery-card:nth-child(6) .gallery-card-bg{background:linear-gradient(135deg,#1a2a2a,#0a1a1a)}
+        .gallery-card-label{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-family:var(--font-display);font-size:1rem}
+
+        /* ═══════ CONTACT — ASYMMETRIC ═══════ */
+        .contact{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;background:var(--surface)}
+        .contact-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1.2fr 1fr;gap:4rem}
+        .contact-left{display:flex;flex-direction:column;gap:1.25rem}
+        .contact-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .contact-heading{font-family:var(--font-display);font-size:clamp(2rem,3vw,3rem);line-height:1.1;margin-bottom:1.5rem}
+        .contact-card{display:flex;gap:1rem;padding:1.25rem;border:1px solid var(--glass-border);transition:all 0.4s var(--ease-out-expo)}
+        .contact-card:hover{border-color:rgba(232,195,106,0.15);transform:translateX(5px)}
+        .contact-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--void);border:1px solid var(--glass-border);flex-shrink:0;transition:all 0.3s}
+        .contact-card:hover .contact-icon{border-color:var(--gold);background:rgba(232,195,106,0.05)}
+        .contact-label{font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.15rem}
+        .contact-value{font-size:0.9rem;font-weight:600}
+        .contact-map{border:1px solid var(--glass-border);overflow:hidden}
+        .contact-map iframe{width:100%;height:100%;min-height:400px;border:0;filter:invert(92%) hue-rotate(180deg) brightness(0.85) contrast(1.2) saturate(0.3)}
+
+        /* ═══════ FOOTER ═══════ */
+        .footer{border-top:1px solid var(--glass-border);padding:4rem 0 2rem;position:relative;z-index:2}
+        .footer-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+        .footer-brand p{font-size:0.8rem;color:var(--text-dim);line-height:1.7;margin-top:1rem;max-width:300px}
+        .footer-heading{font-size:0.6rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.25em;margin-bottom:1.25rem}
+        .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+        .footer-links a{font-size:0.8rem;color:var(--text-dim);transition:all 0.3s}
+        .footer-links a:hover{color:var(--gold);padding-left:4px}
+        .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--glass-border);font-size:0.7rem;color:var(--text-muted);flex-wrap:wrap;gap:1rem}
+        .footer-social{display:flex;gap:0.5rem}
+        .footer-social a{width:32px;height:32px;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:all 0.3s var(--ease-spring)}
+        .footer-social a:hover{background:var(--gold);color:var(--void);border-color:var(--gold);transform:translateY(-2px)}
+
+        /* ═══════ BACK TO TOP ═══════ */
+        .to-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--gold);color:var(--void);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:9990;opacity:0;transform:translateY(20px);transition:all 0.4s var(--ease-spring)}
+        .to-top.show{opacity:1;transform:translateY(0)}
+        .to-top:hover{transform:translateY(-3px);box-shadow:var(--glow-gold)}
+
+        /* ═══════ SCROLL REVEAL ═══════ */
+        .sr{opacity:0;transform:translateY(50px);transition:all 0.9s var(--ease-out-expo)}
+        .sr.visible{opacity:1;transform:translateY(0)}
+        .sr-left{opacity:0;transform:translateX(-50px);transition:all 0.9s var(--ease-out-expo)}
+        .sr-left.visible{opacity:1;transform:translateX(0)}
+        .sr-right{opacity:0;transform:translateX(50px);transition:all 0.9s var(--ease-out-expo)}
+        .sr-right.visible{opacity:1;transform:translateX(0)}
+        .sr-scale{opacity:0;transform:scale(0.92);transition:all 0.9s var(--ease-out-expo)}
+        .sr-scale.visible{opacity:1;transform:scale(1)}
+
+        /* ═══════ MOBILE ═══════ */
+        .mobile-nav{position:fixed;top:0;right:-100%;width:min(85vw,360px);height:100vh;background:var(--void);z-index:9995;padding:6rem 2rem 2rem;border-left:1px solid var(--glass-border);transition:right 0.5s var(--ease-out-expo)}
+        .mobile-nav.open{right:0}
+        .mobile-nav-close{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;color:var(--text-dim)}
+        .mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0}
+        .mobile-nav-links a{display:block;padding:1rem 0;font-size:1.1rem;font-family:var(--font-display);color:var(--text-dim);border-bottom:1px solid var(--glass-border);transition:color 0.3s}
+        .mobile-nav-links a:hover{color:var(--gold)}
+        .mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9994;opacity:0;pointer-events:none;transition:opacity 0.3s}
+        .mobile-overlay.open{opacity:1;pointer-events:auto}
+
+        @media (prefers-reduced-motion:reduce){
+            *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+        }
+
+        @media (max-width:1024px){
+            .hero-bottom{flex-direction:column;align-items:flex-start;gap:2rem}
+            .about-inner{grid-template-columns:1fr}
+            .about-right{order:-1}
+            .stats-inner{grid-template-columns:1fr 1fr}
+            .stat:nth-child(even){transform:none}
+            .bento{grid-template-columns:1fr 1fr}
+            .bento-item:nth-child(1){grid-column:span 2;grid-row:auto}
+            .bento-item:nth-child(4){grid-column:span 1}
+            .admission-inner{grid-template-columns:1fr}
+            .contact-inner{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+            .timeline::before{left:0}
+            .timeline-item,.timeline-item:nth-child(even){flex-direction:column;padding-left:2rem}
+            .timeline-dot{left:0}
+            .timeline-spacer{display:none}
+        }
+        @media (max-width:768px){
+            .nav-links{display:none}
+            .nav-mobile-btn{display:block}
+            .stats-inner{grid-template-columns:1fr 1fr}
+            .bento{grid-template-columns:1fr}
+            .bento-item:nth-child(1){grid-column:auto}
+            .form-row{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+            .footer-bottom{flex-direction:column;text-align:center}
+            .cursor,.cursor-dot{display:none}
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-text">
+            <span style="animation-delay:0.1s">M</span><span style="animation-delay:0.15s">o</span><span style="animation-delay:0.2s">n</span><span style="animation-delay:0.25s">a</span><span style="animation-delay:0.35s"> </span><span style="animation-delay:0.4s">M</span><span style="animation-delay:0.45s">o</span><span style="animation-delay:0.5s">d</span><span style="animation-delay:0.55s">e</span><span style="animation-delay:0.6s">r</span><span style="animation-delay:0.65s">n</span>
+        </div>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <div class="progress" id="progress"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="Home">
+                <div class="nav-logo-mark">
+                    <svg viewBox="0 0 44 44" fill="none">
+                        <circle cx="22" cy="22" r="20" stroke="var(--gold)" stroke-width="1.5" opacity="0.3"/>
+                        <circle cx="22" cy="22" r="14" stroke="var(--gold)" stroke-width="1"/>
+                        <text x="22" y="28" text-anchor="middle" fill="var(--gold)" font-family="var(--font-display)" font-size="20" font-weight="400">M</text>
+                    </svg>
+                </div>
+                <div class="nav-logo-name">Mona Modern<small>Eng. Med. School · Sarangarh</small></div>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#toppers">Toppers</a>
+                <a href="#events">Events</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#admission" class="nav-admission">Admissions Open</a>
+            <button class="nav-mobile-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="menuClose" aria-label="Close">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#toppers">Toppers</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#admission" style="color:var(--gold)">Admissions →</a></li>
+        </ul>
+    </div>
+
+    <!-- ═══════ HERO ═══════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient hero-gradient-1"></div>
+            <div class="hero-gradient hero-gradient-2"></div>
+            <div class="hero-grid-lines"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span>CBSE Affiliated · Est. 2011 · Sarangarh, CG</div>
+            <h1 class="hero-title">
+                <span class="word"><span>Where</span></span>
+                <span class="word"><span class="italic">Stars Are</span></span>
+                <span class="word"><span class="outline">Made ✦</span></span>
+            </h1>
+            <div class="hero-bottom">
+                <p class="hero-desc">Mona Modern English Medium School — empowering 4000+ young minds with excellence, innovation, and values that shape tomorrow's leaders in the heart of Chhattisgarh.</p>
+                <div class="hero-actions">
+                    <a href="#admission" class="btn btn-gold">Apply Now →</a>
+                    <a href="#about" class="btn btn-ghost">Explore ↓</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ STATS — BROKEN GRID ═══════ -->
+    <section class="stats">
+        <div class="stats-inner">
+            <div class="stat sr"><div class="stat-number" data-target="4000">0</div><div class="stat-label">Students</div></div>
+            <div class="stat sr" style="transition-delay:0.1s"><div class="stat-number" data-target="150">0</div><div class="stat-label">Faculty</div></div>
+            <div class="stat sr" style="transition-delay:0.2s"><div class="stat-number" data-target="97">0</div><div class="stat-label">Top %</div></div>
+            <div class="stat sr" style="transition-delay:0.3s"><div class="stat-number" data-target="15">0</div><div class="stat-label">Years</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════ ABOUT ═══════ -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-left sr-left">
+                <div class="about-tag">Our Story</div>
+                <h2 class="about-heading">Building Futures<br>Since <span style="color:var(--gold)">2011</span></h2>
+                <p class="about-text">At Mona Modern, education is not about textbooks — it's about creating curious minds, compassionate hearts, and confident leaders. Our CBSE-affiliated curriculum blends rigorous academics with creative exploration, producing toppers who score 97%+ year after year.</p>
+                <div class="about-values">
+                    <div class="about-value"><div class="about-value-num">01</div><h4>Excellence</h4><p>Highest standards in academics and character</p></div>
+                    <div class="about-value"><div class="about-value-num">02</div><h4>Respect</h4><p>Mutual understanding and dignity for all</p></div>
+                    <div class="about-value"><div class="about-value-num">03</div><h4>Inclusion</h4><p>Every child matters, every voice is heard</p></div>
+                    <div class="about-value"><div class="about-value-num">04</div><h4>Innovation</h4><p>Modern methods, creative thinking</p></div>
+                </div>
+            </div>
+            <div class="about-right sr-right">
+                <div class="about-quote-card">
+                    <div class="about-float-badge">✦ Vision</div>
+                    <div class="about-quote-mark">"</div>
+                    <blockquote class="about-quote">Our vision is to empower students to acquire, demonstrate, articulate and value knowledge and skills that will support them as life-long learners, to participate in and contribute to the global world and practice the core values of the school: respect, tolerance & inclusion, and excellence.</blockquote>
+                    <div class="about-quote-author">— School Vision Statement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ TOPPERS ═══════ -->
+    <section class="toppers" id="toppers">
+        <div class="toppers-inner">
+            <div class="toppers-header sr">
+                <div>
+                    <h2 class="toppers-title">Shining Stars<span class="year">Board Results 2025-26</span></h2>
+                </div>
+                <div class="toppers-tabs">
+                    <button class="toppers-tab active" data-tab="10">Class 10</button>
+                    <button class="toppers-tab" data-tab="12">Class 12</button>
+                </div>
+            </div>
+            <div class="toppers-grid sr-scale" id="toppersGrid">
+                <!-- Class 10 -->
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 01</div><div class="topper-avatar">🥇</div><div class="topper-name">Yash Patel</div><div class="topper-score">97.2%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:97.2%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 02</div><div class="topper-avatar">🥈</div><div class="topper-name">Ritika Dewangan</div><div class="topper-score">97%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:97%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 03</div><div class="topper-avatar">🥉</div><div class="topper-name">Arman Ratnakar</div><div class="topper-score">96.2%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:96.2%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 04</div><div class="topper-avatar">⭐</div><div class="topper-name">Naveen Sahu</div><div class="topper-score">96%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:96%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 04</div><div class="topper-avatar">⭐</div><div class="topper-name">Aanya Kesharwani</div><div class="topper-score">96%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:96%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 05</div><div class="topper-avatar">✦</div><div class="topper-name">Rajveer S. Thakur</div><div class="topper-score">94.4%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:94.4%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 06</div><div class="topper-avatar">✦</div><div class="topper-name">Aashish Agrawal</div><div class="topper-score">93.4%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93.4%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 06</div><div class="topper-avatar">✦</div><div class="topper-name">Chitransh Patel</div><div class="topper-score">93.4%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93.4%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 07</div><div class="topper-avatar">✦</div><div class="topper-name">Jahanvi Patel</div><div class="topper-score">93.2%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93.2%"></div></div>
+                <div class="topper" data-class="10"><div class="topper-rank">RANK 08</div><div class="topper-avatar">✦</div><div class="topper-name">Pratibha Jaiswal</div><div class="topper-score">93%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93%"></div></div>
+                <!-- Class 12 (hidden by default) -->
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 01</div><div class="topper-avatar">🥇</div><div class="topper-name">Khushi Agrawal</div><div class="topper-score">96%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:96%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 02</div><div class="topper-avatar">🥈</div><div class="topper-name">Ayush Agrawal</div><div class="topper-score">94.2%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:94.2%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 03</div><div class="topper-avatar">🥉</div><div class="topper-name">Mahi Kesharwani</div><div class="topper-score">94%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:94%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 03</div><div class="topper-avatar">🥉</div><div class="topper-name">Ritima Chandra</div><div class="topper-score">94%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:94%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 04</div><div class="topper-avatar">⭐</div><div class="topper-name">Riya Agrawal</div><div class="topper-score">93.4%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:93.4%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 05</div><div class="topper-avatar">✦</div><div class="topper-name">M. Varshini Reddy</div><div class="topper-score">93%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:93%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 06</div><div class="topper-avatar">✦</div><div class="topper-name">Ansh Yadav</div><div class="topper-score">92.2%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:92.2%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 07</div><div class="topper-avatar">✦</div><div class="topper-name">Simran Patel</div><div class="topper-score">92%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:92%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 07</div><div class="topper-avatar">✦</div><div class="topper-name">Astha Agrawal</div><div class="topper-score">92%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:92%"></div></div>
+                <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 08</div><div class="topper-avatar">✦</div><div class="topper-name">Siddhi Patel</div><div class="topper-score">91.2%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:91.2%"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ EVENTS — TIMELINE ═══════ -->
+    <section class="events" id="events">
+        <div class="events-inner">
+            <div class="events-header sr">
+                <div class="events-tag">Life at Mona</div>
+                <h2 class="events-title">Events & Activities</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item sr">
+                    <div class="timeline-content">
+                        <div class="timeline-date">19 June 2026</div>
+                        <h3 class="timeline-title">Prophylaxis Health Screening</h3>
+                        <p class="timeline-desc">Comprehensive health checkup camp for all students ensuring their wellbeing and early detection of health issues.</p>
+                        <a href="https://www.monacg.in/prophylaxis-health-screening-19-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
+                    </div>
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item sr">
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">21 June 2026</div>
+                        <h3 class="timeline-title">International Yoga Day</h3>
+                        <p class="timeline-desc">Students and faculty celebrate the ancient practice of yoga, promoting physical and mental wellness across campus.</p>
+                        <a href="https://www.monacg.in/international-yoga-day-21-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item sr">
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2026</div>
+                        <h3 class="timeline-title">Father's Day Celebration</h3>
+                        <p class="timeline-desc">A heartfelt celebration honoring fathers with performances, speeches, and creative activities by students.</p>
+                        <a href="https://www.monacg.in/fathers-day-celebration-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
+                    </div>
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item sr">
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">27 June 2026</div>
+                        <h3 class="timeline-title">Coffee Making Activity</h3>
+                        <p class="timeline-desc">A fun hands-on activity where students learn the art of coffee making, building life skills and creativity.</p>
+                        <a href="https://www.monacg.in/coffee-making-activity-27-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ FACILITIES — BENTO ═══════ -->
+    <section class="facilities" id="facilities">
+        <div class="facilities-inner">
+            <div class="facilities-header sr">
+                <div class="facilities-tag">Infrastructure</div>
+                <h2 class="facilities-title">Facilities That <span style="font-style:italic;color:var(--gold)">Inspire</span></h2>
+            </div>
+            <div class="bento sr-scale">
+                <div class="bento-item"><span class="bento-num">01</span><div class="bento-icon">🔬</div><h3 class="bento-title">Science Laboratories</h3><p class="bento-desc">Fully equipped Physics, Chemistry, and Biology labs where curiosity meets discovery. Hands-on experiments that bring textbooks to life.</p></div>
+                <div class="bento-item"><span class="bento-num">02</span><div class="bento-icon">💻</div><h3 class="bento-title">Computer Lab</h3><p class="bento-desc">Latest hardware and software for digital literacy and coding education.</p></div>
+                <div class="bento-item"><span class="bento-num">03</span><div class="bento-icon">📚</div><h3 class="bento-title">Library</h3><p class="bento-desc">Vast collection of books, journals, and digital resources for research and reading.</p></div>
+                <div class="bento-item"><span class="bento-num">04</span><div class="bento-icon">🏃</div><h3 class="bento-title">Sports Complex</h3><p class="bento-desc">Spacious playgrounds and indoor facilities for cricket, football, basketball, and athletics. Champions are built here.</p></div>
+                <div class="bento-item"><span class="bento-num">05</span><div class="bento-icon">🎨</div><h3 class="bento-title">Art & Music</h3><p class="bento-desc">Dedicated spaces for classical dance, music, and visual arts.</p></div>
+                <div class="bento-item"><span class="bento-num">06</span><div class="bento-icon">🏫</div><h3 class="bento-title">Smart Classrooms</h3><p class="bento-desc">Technology-enabled with projectors and digital boards for interactive learning.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ GALLERY — SCROLL STRIP ═══════ -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-inner">
+            <div class="gallery-header sr">
+                <div class="gallery-tag">Moments</div>
+                <h2 class="gallery-title">Captured <span style="font-style:italic;color:var(--gold)">Joy</span></h2>
+            </div>
+            <div class="gallery-strip sr">
+                <div class="gallery-card"><div class="gallery-card-bg">🎓</div><div class="gallery-card-label">Annual Day Celebration</div></div>
+                <div class="gallery-card"><div class="gallery-card-bg">🏆</div><div class="gallery-card-label">Prize Distribution</div></div>
+                <div class="gallery-card"><div class="gallery-card-bg">🎭</div><div class="gallery-card-label">Cultural Program</div></div>
+                <div class="gallery-card"><div class="gallery-card-bg">⚽</div><div class="gallery-card-label">Sports Day</div></div>
+                <div class="gallery-card"><div class="gallery-card-bg">🧘</div><div class="gallery-card-label">Yoga Day</div></div>
+                <div class="gallery-card"><div class="gallery-card-bg">🔬</div><div class="gallery-card-label">Science Exhibition</div></div>
+            </div>
+            <div style="text-align:center;margin-top:2rem" class="sr">
+                <a href="https://www.monacg.in/our-gallery/" class="btn btn-ghost" target="_blank" rel="noopener">Full Gallery →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ ADMISSION ═══════ -->
+    <section class="admission" id="admission">
+        <div class="admission-bg"></div>
+        <div class="admission-inner">
+            <div class="admission-left sr-left">
+                <div class="admission-tag">Join the Family</div>
+                <h2 class="admission-heading">Admissions<br><span style="color:var(--gold)">Open 2026-27</span></h2>
+                <p class="admission-text">Give your child the gift of excellence. At Mona Modern, every student is seen, heard, and empowered to reach their highest potential.</p>
+                <div class="admission-checks">
+                    <div class="admission-check"><span class="admission-check-icon">✓</span> Nursery to Class 12 Admissions</div>
+                    <div class="admission-check"><span class="admission-check-icon">✓</span> CBSE Affiliated Curriculum</div>
+                    <div class="admission-check"><span class="admission-check-icon">✓</span> Scholarship for Meritorious Students</div>
+                    <div class="admission-check"><span class="admission-check-icon">✓</span> Modern Infrastructure & Facilities</div>
+                </div>
+            </div>
+            <div class="admission-form sr-right">
+                <h3 class="form-title">Admission Enquiry</h3>
+                <p class="form-subtitle">Fill in your details and we'll get back to you.</p>
+                <form id="admissionForm">
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="First name" required></div>
+                        <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Last name" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" placeholder="Phone number" required></div>
+                        <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="Email address"></div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell us about your child..."></textarea></div>
+                    <button type="submit" class="form-submit">Submit Enquiry ✦</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ CONTACT ═══════ -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <div class="contact-left sr-left">
+                <div class="contact-tag">Reach Out</div>
+                <h2 class="contact-heading">Let's <span style="font-style:italic;color:var(--gold)">Connect</span></h2>
+                <div class="contact-card"><div class="contact-icon">📍</div><div><div class="contact-label">Address</div><div class="contact-value">Sarangarh, Chhattisgarh 496445, India</div></div></div>
+                <div class="contact-card"><div class="contact-icon">📞</div><div><div class="contact-label">Phone</div><div class="contact-value">9575130353 · 8319120880</div></div></div>
+                <div class="contact-card"><div class="contact-icon">✉️</div><div><div class="contact-label">Email</div><div class="contact-value">monagroup2011@gmail.com</div></div></div>
+                <div class="contact-card"><div class="contact-icon">🕐</div><div><div class="contact-label">Hours</div><div class="contact-value">Mon – Sat: 8:00 AM – 3:00 PM</div></div></div>
+            </div>
+            <div class="contact-map sr-right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5!2d83.08!3d21.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDM0JzQ4LjAiTiA4M8KwMDQnNDguMCJF!5e0!3m2!1sen!2sin!4v1" loading="lazy" title="Location"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ FOOTER ═══════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:0.25rem">Mona Modern</div>
+                    <p>Empowering students since 2011 with excellence, respect, and innovation. CBSE affiliated English Medium School in Sarangarh, Chhattisgarh.</p>
+                    <div class="footer-social" style="margin-top:1rem">
+                        <a href="https://www.facebook.com/Mona-Modern-English-Medium-School-Sarangarh-CG-2031982403702900/" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+                        <a href="https://twitter.com/monaschool_sgh" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+                        <a href="https://www.youtube.com/channel/UCObWS5z508wg8ZGpiCx5YpA" target="_blank" rel="noopener" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div><h4 class="footer-heading">Quick Links</h4><ul class="footer-links"><li><a href="https://www.monacg.in/admission-form/" target="_blank" rel="noopener">Admission Form</a></li><li><a href="https://www.monacg.in/school-result/" target="_blank" rel="noopener">Results</a></li><li><a href="https://www.monacg.in/school-fees/" target="_blank" rel="noopener">Fees</a></li><li><a href="https://www.monacg.in/online-payment/" target="_blank" rel="noopener">Online Payment</a></li><li><a href="https://www.monacg.in/transfer-certificate/" target="_blank" rel="noopener">Transfer Certificate</a></li></ul></div>
+                <div><h4 class="footer-heading">Academics</h4><ul class="footer-links"><li><a href="https://www.monacg.in/faculty/" target="_blank" rel="noopener">Faculty</a></li><li><a href="https://www.monacg.in/book-list/" target="_blank" rel="noopener">Book List</a></li><li><a href="https://www.monacg.in/sample-papers/" target="_blank" rel="noopener">Sample Papers</a></li><li><a href="https://www.monacg.in/uniform/" target="_blank" rel="noopener">Uniform</a></li><li><a href="https://www.monacg.in/academics/cw-hw/" target="_blank" rel="noopener">Classwork</a></li></ul></div>
+                <div><h4 class="footer-heading">More</h4><ul class="footer-links"><li><a href="https://www.monacg.in/our-gallery/" target="_blank" rel="noopener">Gallery</a></li><li><a href="https://www.monacg.in/download/" target="_blank" rel="noopener">Downloads</a></li><li><a href="https://www.monacg.in/career-corner/" target="_blank" rel="noopener">Career</a></li><li><a href="https://www.monacg.in/faqs/" target="_blank" rel="noopener">FAQs</a></li><li><a href="https://www.monacg.in/mandatory-public-disclosure/" target="_blank" rel="noopener">Disclosure</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Mona Modern Eng. Med. School, Sarangarh. All Rights Reserved.</span>
+                <span>Crafted with ✦ for education</span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+    <script>
+    (function(){
+        'use strict';
+
+        // ═══════ LOADER ═══════
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('loader').classList.add('done'), 2000);
+        });
+
+        // ═══════ CUSTOM CURSOR ═══════
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        let cx = 0, cy = 0, dx = 0, dy = 0;
+
+        document.addEventListener('mousemove', e => {
+            dx = e.clientX; dy = e.clientY;
+            cursorDot.style.left = dx + 'px';
+            cursorDot.style.top = dy + 'px';
+        });
+        function updateCursor(){
+            cx += (dx - cx) * 0.15;
+            cy += (dy - cy) * 0.15;
+            cursor.style.left = cx + 'px';
+            cursor.style.top = cy + 'px';
+            requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+
+        document.querySelectorAll('a, button, .topper, .gallery-card, .bento-item, .contact-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // ═══════ NAV ═══════
+        const nav = document.getElementById('nav');
+        const toTop = document.getElementById('toTop');
+        const progress = document.getElementById('progress');
+
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            nav.classList.toggle('scrolled', y > 50);
+            toTop.classList.toggle('show', y > 500);
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = (y / max * 100) + '%';
+        });
+        toTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+        // ═══════ MOBILE ═══════
+        const menuBtn = document.getElementById('menuBtn');
+        const menuClose = document.getElementById('menuClose');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        function toggleMenu(o){
+            mobileNav.classList.toggle('open',o);
+            mobileOverlay.classList.toggle('open',o);
+            document.body.style.overflow = o?'hidden':'';
+        }
+        menuBtn.addEventListener('click',()=>toggleMenu(true));
+        menuClose.addEventListener('click',()=>toggleMenu(false));
+        mobileOverlay.addEventListener('click',()=>toggleMenu(false));
+        mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+
+        // ═══════ SCROLL REVEAL ═══════
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+        }, {threshold:0.1, rootMargin:'50px'});
+        document.querySelectorAll('.sr,.sr-left,.sr-right,.sr-scale').forEach(el => obs.observe(el));
+
+        // ═══════ COUNTERS ═══════
+        const cObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if(!e.isIntersecting) return;
+                const el = e.target, target = parseInt(el.dataset.target);
+                let cur = 0; const inc = target / 50;
+                const t = setInterval(() => {
+                    cur += inc;
+                    if(cur >= target){ cur = target; clearInterval(t); }
+                    el.textContent = Math.floor(cur) + (target > 100 ? '+' : target === 97 ? '%' : '+');
+                }, 30);
+                cObs.unobserve(el);
+            });
+        }, {threshold:0.5});
+        document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+
+        // ═══════ TOPPER TABS ═══════
+        document.querySelectorAll('.toppers-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.toppers-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const cls = tab.dataset.tab;
+                document.querySelectorAll('.topper').forEach(c => {
+                    c.style.display = c.dataset.class === cls ? '' : 'none';
+                });
+            });
+        });
+
+        // ═══════ TOPPER BAR ANIMATION ═══════
+        const tObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if(e.isIntersecting){
+                    e.target.style.width = getComputedStyle(e.target).getPropertyValue('--w');
+                    tObs.unobserve(e.target);
+                }
+            });
+        }, {threshold:0.3});
+        document.querySelectorAll('.topper-bar').forEach(el => tObs.observe(el));
+
+        // ═══════ FORM ═══════
+        document.getElementById('admissionForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const btn = this.querySelector('.form-submit');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            setTimeout(()=>{
+                btn.textContent = '✓ Submitted!';
+                btn.style.background = '#10b981';
+                setTimeout(()=>{
+                    btn.textContent = 'Submit Enquiry ✦';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    this.reset();
+                },3000);
+            },1500);
+        });
+
+        // ═══════ SMOOTH SCROLL ═══════
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e){
+                e.preventDefault();
+                const t = document.querySelector(this.getAttribute('href'));
+                if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+            });
+        });
+
+        // ═══════ MAGNETIC BUTTONS ═══════
+        document.querySelectorAll('.btn-gold, .nav-admission').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                btn.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) scale(1.05)`;
+            });
+            btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+        });
+
+        // ═══════ 3D TILT ON TOPPER CARDS ═══════
+        document.querySelectorAll('.topper').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientY - r.top - r.height/2) / 12;
+                const y = -(e.clientX - r.left - r.width/2) / 12;
+                card.style.transform = `perspective(800px) rotateX(${x}deg) rotateY(${y}deg)`;
+            });
+            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+        });
+
+    })();
+    </script>
+</body>
+</html>
