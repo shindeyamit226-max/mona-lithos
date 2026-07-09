@@ -13,17 +13,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* ═══════════════════════════════════════════════════
-           NOT A TEMPLATE. This is an EXPERIENCE.
-           Every choice answers: "Why is this here?"
-           
-           DESIGN LANGUAGE: Cosmic Dark
-           - Deep void blacks (not safe navy)
-           - Electric gold that BREATHES
-           - Typography that COMMANDS attention
-           - Motion that tells a STORY
-           - Layout that BREAKS expectations
-           ═══════════════════════════════════════════════════ */
+        /* ═══════════════════════════════════════════════════════════
+           MOTIONSITES.AI DESIGN PATTERNS INTEGRATED:
+           1. Animated mesh gradient hero background
+           2. Glassmorphism cards (frosted glass)
+           3. Liquid glass effects
+           4. Infinite marquee scroll strips
+           5. Sticky scroll pinned sections
+           6. Bento grid with mixed sizes
+           7. FAQ accordion with smooth expand
+           8. Testimonial carousel/slider
+           9. 3D tilt on hover (vanilla-tilt style)
+           10. Custom animated cursor with trail
+           11. Scroll-triggered reveal animations
+           12. Floating/decorative elements
+           13. Bold mixed typography (serif + sans)
+           14. Dark theme with neon accent pops
+           15. Animated loader with stagger
+           16. Magnetic hover buttons
+           17. Parallax depth layers
+           18. Gradient border glow effects
+           19. Scroll progress indicator
+           20. Number counter animations
+           ═══════════════════════════════════════════════════════════ */
 
         :root {
             --void: #050510;
@@ -37,14 +49,16 @@
             --electric-dim: #2a6bc4;
             --coral: #ff6b6b;
             --mint: #4ecdc4;
+            --violet: #8b5cf6;
             --text: #e8e8f0;
             --text-dim: #7a7a9a;
             --text-muted: #4a4a6a;
-            --glass: rgba(255,255,255,0.03);
-            --glass-heavy: rgba(255,255,255,0.06);
+            --glass: rgba(255,255,255,0.04);
+            --glass-heavy: rgba(255,255,255,0.08);
             --glass-border: rgba(255,255,255,0.06);
-            --glow-gold: 0 0 40px rgba(232,195,106,0.15);
-            --glow-electric: 0 0 40px rgba(74,158,255,0.15);
+            --glass-glow: rgba(232,195,106,0.08);
+            --glow-gold: 0 0 60px rgba(232,195,106,0.15);
+            --glow-electric: 0 0 60px rgba(74,158,255,0.15);
             --font-display: 'Instrument Serif', Georgia, serif;
             --font-body: 'Space Grotesk', system-ui, sans-serif;
             --font-mono: 'DM Mono', 'Courier New', monospace;
@@ -63,69 +77,67 @@
         button,input,textarea,select{font:inherit;border:none;background:none;color:inherit}
         img,svg{max-width:100%;display:block}
 
-        /* ═══════ LOADING SCREEN ═══════ */
-        .loader{position:fixed;inset:0;background:var(--void);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s, visibility 0.6s}
-        .loader.done{opacity:0;visibility:hidden;pointer-events:none}
-        .loader-text{font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);color:var(--gold);overflow:hidden}
-        .loader-text span{display:inline-block;animation:loaderReveal 0.6s var(--ease-out-expo) forwards;opacity:0;transform:translateY(100%)}
-        @keyframes loaderReveal{to{opacity:1;transform:translateY(0)}}
-        .loader-bar{width:200px;height:2px;background:var(--surface);margin-top:2rem;border-radius:1px;overflow:hidden}
-        .loader-bar-fill{height:100%;background:var(--gold);width:0%;animation:loaderFill 1.8s var(--ease-out-expo) forwards}
-        @keyframes loaderFill{to{width:100%}}
+        /* ═══════ NOISE TEXTURE ═══════ */
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99998;opacity:0.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
 
-        /* ═══════ NOISE TEXTURE OVERLAY ═══════ */
-        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.015;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+        /* ═══════ LOADER — MotionSites stagger pattern ═══════ */
+        .loader{position:fixed;inset:0;background:var(--void);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s var(--ease-out-expo), visibility 0.8s}
+        .loader.done{opacity:0;visibility:hidden;pointer-events:none}
+        .loader-logo{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5rem);color:var(--gold);overflow:hidden;margin-bottom:2rem}
+        .loader-logo span{display:inline-block;animation:loaderChar 0.7s var(--ease-out-expo) forwards;opacity:0;transform:translateY(100%) rotateX(90deg)}
+        @keyframes loaderChar{to{opacity:1;transform:translateY(0) rotateX(0)}}
+        .loader-bar{width:240px;height:2px;background:var(--surface);border-radius:1px;overflow:hidden}
+        .loader-bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),var(--electric));width:0%;animation:loaderFill 2s var(--ease-out-expo) forwards}
+        @keyframes loaderFill{to{width:100%}}
+        .loader-counter{font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-top:1rem;letter-spacing:0.2em}
 
         /* ═══════ SCROLL PROGRESS ═══════ */
-        .progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:99999;width:0;transition:width 50ms}
+        .progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--electric));z-index:99999;width:0;transition:width 50ms}
 
-        /* ═══════ CURSOR ═══════ */
-        .cursor{position:fixed;width:20px;height:20px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transition:width 0.3s var(--ease-spring),height 0.3s var(--ease-spring),border-color 0.3s;transform:translate(-50%,-50%);mix-blend-mode:difference}
-        .cursor.hover{width:50px;height:50px;border-color:var(--electric)}
-        .cursor-dot{position:fixed;width:4px;height:4px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
+        /* ═══════ CUSTOM CURSOR with trail ═══════ */
+        .cursor{position:fixed;width:20px;height:20px;border:1.5px solid var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transition:width 0.4s var(--ease-spring),height 0.4s var(--ease-spring),border-color 0.4s,background 0.4s;transform:translate(-50%,-50%);mix-blend-mode:difference}
+        .cursor.hover{width:60px;height:60px;border-color:var(--electric);background:rgba(74,158,255,0.08)}
+        .cursor-dot{position:fixed;width:5px;height:5px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:opacity 0.3s}
+        .cursor-trail{position:fixed;width:8px;height:8px;border-radius:50%;pointer-events:none;z-index:99997;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.3s}
 
         /* ═══════ NAVIGATION ═══════ */
         .nav{position:fixed;top:0;left:0;right:0;z-index:9990;padding:1.5rem 0;transition:all 0.5s var(--ease-out-expo)}
-        .nav.scrolled{padding:0.75rem 0;background:rgba(5,5,16,0.85);backdrop-filter:blur(30px) saturate(200%);border-bottom:1px solid var(--glass-border)}
+        .nav.scrolled{padding:0.6rem 0;background:rgba(5,5,16,0.8);backdrop-filter:blur(30px) saturate(200%);border-bottom:1px solid var(--glass-border)}
         .nav-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:flex;align-items:center;justify-content:space-between}
-        .nav-logo{display:flex;align-items:center;gap:1rem;cursor:pointer}
-        .nav-logo-mark{width:44px;height:44px;position:relative}
-        .nav-logo-mark svg{width:100%;height:100%}
-        .nav-logo-name{font-family:var(--font-display);font-size:1.2rem;line-height:1.1}
-        .nav-logo-name small{display:block;font-family:var(--font-body);font-size:0.55rem;font-weight:500;color:var(--text-muted);letter-spacing:0.25em;text-transform:uppercase;margin-top:2px}
+        .nav-logo{display:flex;align-items:center;gap:0.75rem;cursor:pointer}
+        .nav-logo-mark{width:42px;height:42px;position:relative;display:flex;align-items:center;justify-content:center}
+        .nav-logo-mark::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold);opacity:0.3;animation:logoSpin 20s linear infinite}
+        @keyframes logoSpin{to{transform:rotate(360deg)}}
+        .nav-logo-mark span{font-family:var(--font-display);font-size:1.4rem;color:var(--gold)}
+        .nav-logo-name{font-family:var(--font-display);font-size:1.1rem;line-height:1.1}
+        .nav-logo-name small{display:block;font-family:var(--font-body);font-size:0.5rem;font-weight:500;color:var(--text-muted);letter-spacing:0.25em;text-transform:uppercase;margin-top:2px}
         .nav-links{display:flex;align-items:center;gap:0}
-        .nav-links a{padding:0.6rem 1.2rem;font-size:0.8rem;font-weight:500;color:var(--text-dim);letter-spacing:0.03em;position:relative;transition:color 0.3s}
+        .nav-links a{padding:0.6rem 1.1rem;font-size:0.78rem;font-weight:500;color:var(--text-dim);position:relative;transition:color 0.3s}
         .nav-links a:hover{color:var(--text)}
         .nav-links a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:1px;background:var(--gold);transition:all 0.3s var(--ease-out-expo);transform:translateX(-50%)}
-        .nav-links a:hover::after{width:60%}
-        .nav-admission{margin-left:1rem;padding:0.6rem 1.6rem;background:var(--gold);color:var(--void);font-weight:700;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:100px;transition:all 0.3s var(--ease-spring);cursor:pointer}
-        .nav-admission:hover{transform:scale(1.05);box-shadow:var(--glow-gold)}
-        .nav-mobile-btn{display:none;cursor:pointer;padding:0.5rem}
+        .nav-links a:hover::after{width:50%}
+        .nav-cta{margin-left:1rem;padding:0.55rem 1.5rem;background:var(--gold);color:var(--void);font-weight:700;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:100px;cursor:pointer;transition:all 0.3s var(--ease-spring);position:relative;overflow:hidden}
+        .nav-cta::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:var(--gold-bright);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.5s,height 0.5s}
+        .nav-cta:hover::before{width:300px;height:300px}
+        .nav-cta:hover{transform:scale(1.05);box-shadow:var(--glow-gold)}
+        .nav-mobile{display:none;cursor:pointer;padding:0.5rem}
 
-        /* ═══════ HERO — THE ENTRANCE MOMENT ═══════
-           NOT a full-screen image with overlaid text.
-           Instead: PURE TYPOGRAPHY as the hero.
-           The words themselves ARE the design. */
+        /* ═══════ HERO — Animated mesh gradient + floating orbs ═══════ */
         .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:8rem}
-        .hero-bg{position:absolute;inset:0;z-index:0}
-        .hero-gradient{position:absolute;width:800px;height:800px;border-radius:50%;filter:blur(120px);opacity:0.12}
-        .hero-gradient-1{top:-200px;right:-200px;background:var(--gold);animation:float1 20s ease-in-out infinite}
-        .hero-gradient-2{bottom:-300px;left:-200px;background:var(--electric);animation:float2 25s ease-in-out infinite}
-        @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,60px)}}
-        @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,-80px)}}
+        .hero-mesh{position:absolute;inset:0;z-index:0}
+        .hero-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.12;animation:orbFloat 20s ease-in-out infinite}
+        .hero-orb-1{width:600px;height:600px;background:var(--gold);top:-20%;right:-10%;animation-duration:25s}
+        .hero-orb-2{width:500px;height:500px;background:var(--electric);bottom:-20%;left:-10%;animation-duration:30s;animation-delay:-5s}
+        .hero-orb-3{width:300px;height:300px;background:var(--violet);top:40%;left:30%;animation-duration:22s;animation-delay:-10s}
+        @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-60px) scale(1.1)}66%{transform:translate(-30px,40px) scale(0.9)}}
 
-        .hero-grid-lines{position:absolute;inset:0;background-image:
-            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size:80px 80px;mask-image:radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%)}
+        .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 50% 50% at 50% 50%, black 10%, transparent 70%)}
 
         .hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);width:100%}
-        .hero-eyebrow{display:inline-flex;align-items:center;gap:0.75rem;font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fadeSlideUp 0.8s 0.3s var(--ease-out-expo) forwards}
-        .hero-eyebrow-line{width:40px;height:1px;background:var(--gold)}
+        .hero-eyebrow{display:inline-flex;align-items:center;gap:0.75rem;font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:fadeSlideUp 0.8s 0.3s var(--ease-out-expo) forwards}
+        .hero-eyebrow-line{width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
         @keyframes fadeSlideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-        /* THE HERO TEXT — This is the design element.
-           Not an image. Not a video. THE WORDS. */
         .hero-title{font-family:var(--font-display);font-size:clamp(3.5rem,9vw,9rem);font-weight:400;line-height:0.95;margin-bottom:2rem;letter-spacing:-0.03em}
         .hero-title .word{display:block;overflow:hidden}
         .hero-title .word span{display:inline-block;transform:translateY(110%);animation:wordReveal 1s var(--ease-out-expo) forwards}
@@ -137,160 +149,140 @@
         .hero-title .outline{-webkit-text-stroke:1.5px var(--text);color:transparent}
 
         .hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;margin-top:3rem;opacity:0;animation:fadeSlideUp 0.8s 0.9s var(--ease-out-expo) forwards}
-        .hero-desc{max-width:420px;font-size:1rem;color:var(--text-dim);line-height:1.8}
+        .hero-desc{max-width:420px;font-size:0.95rem;color:var(--text-dim);line-height:1.8}
         .hero-actions{display:flex;gap:1rem;flex-shrink:0}
-        .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2rem;font-weight:600;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.4s var(--ease-spring);position:relative;overflow:hidden}
-        .btn-gold{background:var(--gold);color:var(--void);border-radius:100px}
+        .btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.9rem 2rem;font-weight:600;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.4s var(--ease-spring);position:relative;overflow:hidden;border-radius:100px}
+        .btn-gold{background:var(--gold);color:var(--void)}
         .btn-gold:hover{transform:scale(1.05);box-shadow:var(--glow-gold)}
-        .btn-ghost{color:var(--text);border:1px solid var(--glass-border);border-radius:100px;padding:1rem 2rem}
+        .btn-ghost{color:var(--text);border:1px solid var(--glass-border)}
         .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 
-        /* ═══════ STATS — BROKEN GRID ═══════
-           Instead of a boring row of numbers,
-           stats are STAGGERED and OVERLAPPING */
-        .stats{padding:clamp(4rem,8vw,8rem) 0;position:relative;z-index:2}
-        .stats-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-        .stat{padding:2rem;text-align:center;border:1px solid var(--glass-border);position:relative;transition:all 0.5s var(--ease-out-expo)}
-        .stat:hover{background:var(--glass);border-color:rgba(232,195,106,0.15)}
-        .stat:nth-child(even){transform:translateY(2rem)}
-        .stat-number{font-family:var(--font-mono);font-size:clamp(2rem,4vw,3.5rem);font-weight:500;color:var(--gold);line-height:1}
-        .stat-label{font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.2em;margin-top:0.5rem}
+        /* ═══════ MARQUEE STRIP — MotionSites infinite scroll ═══════ */
+        .marquee{padding:1.5rem 0;overflow:hidden;border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);position:relative;z-index:2;background:var(--surface)}
+        .marquee-track{display:flex;gap:3rem;animation:marqueeScroll 30s linear infinite;width:max-content}
+        .marquee:hover .marquee-track{animation-play-state:paused}
+        @keyframes marqueeScroll{to{transform:translateX(-50%)}}
+        .marquee-item{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;white-space:nowrap}
+        .marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+        .marquee-text{font-family:var(--font-mono);font-size:0.75rem;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase}
 
-        /* ═══════ ABOUT — SPLIT WITH FLOATING QUOTE ═══════ */
+        /* ═══════ STATS — Glass cards with glow ═══════ */
+        .stats{padding:clamp(4rem,8vw,6rem) 0;position:relative;z-index:2}
+        .stats-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+        .stat-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);padding:2rem;text-align:center;position:relative;overflow:hidden;transition:all 0.5s var(--ease-out-expo)}
+        .stat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--glass-glow),transparent);opacity:0;transition:opacity 0.4s}
+        .stat-card:hover::before{opacity:1}
+        .stat-card:hover{border-color:rgba(232,195,106,0.15);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.2)}
+        .stat-card:nth-child(even){transform:translateY(1.5rem)}
+        .stat-card:nth-child(even):hover{transform:translateY(calc(1.5rem - 4px))}
+        .stat-number{font-family:var(--font-mono);font-size:clamp(2rem,3.5vw,3rem);font-weight:500;color:var(--gold);line-height:1}
+        .stat-label{font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.2em;margin-top:0.5rem}
+
+        /* ═══════ ABOUT — Split with glass quote ═══════ */
         .about{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
-        .about-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-        .about-left{position:relative}
-        .about-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+        .about-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+        .about-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
         .about-tag::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
         .about-heading{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;margin-bottom:2rem}
-        .about-text{color:var(--text-dim);line-height:1.9;margin-bottom:2rem;font-size:0.95rem}
+        .about-text{color:var(--text-dim);line-height:1.9;margin-bottom:2rem;font-size:0.92rem}
         .about-values{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--glass-border)}
         .about-value{background:var(--void);padding:1.5rem;transition:all 0.4s var(--ease-out-expo)}
         .about-value:hover{background:var(--surface)}
-        .about-value-num{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);margin-bottom:0.5rem}
-        .about-value h4{font-size:0.85rem;font-weight:600;margin-bottom:0.25rem}
-        .about-value p{font-size:0.75rem;color:var(--text-muted);line-height:1.5}
+        .about-value-num{font-family:var(--font-mono);font-size:0.55rem;color:var(--gold);margin-bottom:0.5rem}
+        .about-value h4{font-size:0.82rem;font-weight:600;margin-bottom:0.2rem}
+        .about-value p{font-size:0.7rem;color:var(--text-muted);line-height:1.5}
 
-        /* FLOATING QUOTE — breaks the grid, overlaps */
-        .about-right{position:relative}
-        .about-quote-card{background:var(--surface);border:1px solid var(--glass-border);border-radius:2px;padding:3rem;position:relative;transform:rotate(-1deg);transition:all 0.6s var(--ease-out-expo)}
+        /* Liquid Glass Quote Card — MotionSites pattern */
+        .about-quote-wrap{position:relative}
+        .about-quote-card{background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:3rem;position:relative;transform:rotate(-1deg);transition:all 0.6s var(--ease-out-expo);overflow:hidden}
+        .about-quote-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 180deg,transparent,rgba(232,195,106,0.05),transparent 30%);animation:glassShimmer 8s linear infinite}
+        @keyframes glassShimmer{to{transform:rotate(360deg)}}
         .about-quote-card:hover{transform:rotate(0deg);border-color:rgba(232,195,106,0.15)}
-        .about-quote-mark{font-family:var(--font-display);font-size:6rem;color:var(--gold);opacity:0.15;position:absolute;top:0.5rem;left:1.5rem;line-height:1}
-        .about-quote{font-family:var(--font-display);font-style:italic;font-size:1.3rem;line-height:1.6;color:var(--text);margin-bottom:1.5rem;position:relative;z-index:1}
-        .about-quote-author{font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em}
-        .about-float-badge{position:absolute;top:-1.5rem;right:-1.5rem;background:var(--gold);color:var(--void);font-family:var(--font-mono);font-size:0.65rem;font-weight:700;padding:0.5rem 1rem;letter-spacing:0.1em;text-transform:uppercase;animation:float 3s ease-in-out infinite}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        .about-quote-mark{font-family:var(--font-display);font-size:6rem;color:var(--gold);opacity:0.1;position:absolute;top:0;left:1.5rem;line-height:1}
+        .about-quote{font-family:var(--font-display);font-style:italic;font-size:1.2rem;line-height:1.7;color:var(--text);margin-bottom:1.5rem;position:relative;z-index:1}
+        .about-quote-author{font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);letter-spacing:0.1em}
+        .about-float-badge{position:absolute;top:-1rem;right:-1rem;background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--void);font-family:var(--font-mono);font-size:0.6rem;font-weight:700;padding:0.4rem 0.9rem;letter-spacing:0.1em;text-transform:uppercase;animation:floatBadge 3s ease-in-out infinite;z-index:2}
+        @keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
-        /* ═══════ TOPPERS — DIAGONAL REVEAL ═══════
-           Cards are arranged in a STAGGERED pattern,
-           not a boring grid. */
+        /* ═══════ TOPPERS — Tab switcher + 3D cards ═══════ */
         .toppers{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
         .toppers-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
-        .toppers-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
+        .toppers-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:2rem}
         .toppers-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);line-height:1}
-        .toppers-title .year{font-family:var(--font-mono);font-size:0.5em;color:var(--gold);display:block;margin-top:0.5rem}
+        .toppers-title .year{font-family:var(--font-mono);font-size:0.4em;color:var(--gold);display:block;margin-top:0.5rem}
         .toppers-tabs{display:flex;gap:0}
-        .toppers-tab{padding:0.7rem 1.5rem;font-size:0.75rem;font-weight:600;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid var(--glass-border);transition:all 0.3s}
+        .toppers-tab{padding:0.65rem 1.5rem;font-size:0.72rem;font-weight:600;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid var(--glass-border);transition:all 0.3s;background:transparent}
         .toppers-tab:first-child{border-radius:100px 0 0 100px}
         .toppers-tab:last-child{border-radius:0 100px 100px 0}
         .toppers-tab.active{background:var(--gold);color:var(--void);border-color:var(--gold)}
 
-        .toppers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--glass-border)}
-        .topper{background:var(--void);padding:1.75rem;text-align:center;transition:all 0.5s var(--ease-out-expo);position:relative;cursor:default}
+        .toppers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1px;background:var(--glass-border)}
+        .topper{background:var(--void);padding:1.75rem 1rem;text-align:center;transition:all 0.5s var(--ease-out-expo);position:relative;cursor:default}
         .topper:hover{background:var(--surface);z-index:2}
-        .topper-rank{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:0.75rem}
-        .topper-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--surface-raised),var(--surface));border:1px solid var(--glass-border);margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all 0.4s var(--ease-spring)}
-        .topper:hover .topper-avatar{transform:scale(1.1);border-color:var(--gold);box-shadow:var(--glow-gold)}
-        .topper-name{font-family:var(--font-display);font-size:1.05rem;margin-bottom:0.25rem}
-        .topper-score{font-family:var(--font-mono);font-size:1.6rem;font-weight:500;color:var(--gold)}
-        .topper-class{font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-top:0.25rem}
-        .topper-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);transition:width 0.8s var(--ease-out-expo);width:0}
+        .topper-rank{font-family:var(--font-mono);font-size:0.55rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:0.75rem}
+        .topper-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--surface-raised),var(--surface));border:1px solid var(--glass-border);margin:0 auto 0.6rem;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:all 0.4s var(--ease-spring)}
+        .topper:hover .topper-avatar{transform:scale(1.15);border-color:var(--gold);box-shadow:var(--glow-gold)}
+        .topper-name{font-family:var(--font-display);font-size:0.95rem;margin-bottom:0.2rem}
+        .topper-score{font-family:var(--font-mono);font-size:1.4rem;font-weight:500;color:var(--gold)}
+        .topper-class{font-size:0.55rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-top:0.2rem}
+        .topper-bar{position:absolute;bottom:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--electric));transition:width 1s var(--ease-out-expo);width:0}
         .topper:hover .topper-bar{width:100%}
 
-        /* ═══════ EVENTS — TIMELINE LAYOUT ═══════
-           Not cards in a grid. A VERTICAL TIMELINE
-           that tells the story of the school year. */
+        /* ═══════ EVENTS — Timeline with glass cards ═══════ */
         .events{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;background:var(--surface)}
         .events-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
         .events-header{text-align:center;margin-bottom:4rem}
-        .events-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .events-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
         .events-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
 
         .timeline{position:relative;max-width:800px;margin:0 auto}
-        .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--glass-border),var(--gold),var(--glass-border),transparent);transform:translateX(-50%)}
-        .timeline-item{display:flex;align-items:flex-start;gap:3rem;margin-bottom:3rem;position:relative}
+        .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,var(--gold-dim),var(--gold),var(--gold-dim),transparent);transform:translateX(-50%)}
+        .timeline-item{display:flex;align-items:flex-start;gap:3rem;margin-bottom:2.5rem;position:relative}
         .timeline-item:nth-child(even){flex-direction:row-reverse}
-        .timeline-dot{position:absolute;left:50%;top:1.5rem;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateX(-50%);z-index:2;box-shadow:var(--glow-gold)}
-        .timeline-content{flex:1;padding:2rem;background:var(--void);border:1px solid var(--glass-border);transition:all 0.4s var(--ease-out-expo);cursor:default}
-        .timeline-content:hover{border-color:rgba(232,195,106,0.15);transform:translateY(-3px)}
-        .timeline-date{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:0.75rem}
-        .timeline-title{font-family:var(--font-display);font-size:1.2rem;margin-bottom:0.5rem}
-        .timeline-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
-        .timeline-link{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:600;color:var(--gold);margin-top:0.75rem;letter-spacing:0.05em;text-transform:uppercase;transition:gap 0.3s}
+        .timeline-dot{position:absolute;left:50%;top:1.5rem;width:12px;height:12px;border-radius:50%;background:var(--void);border:2px solid var(--gold);transform:translateX(-50%);z-index:2;transition:all 0.3s}
+        .timeline-item:hover .timeline-dot{background:var(--gold);box-shadow:var(--glow-gold)}
+        .timeline-content{flex:1;padding:1.75rem;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);transition:all 0.4s var(--ease-out-expo);cursor:default}
+        .timeline-content:hover{border-color:rgba(232,195,106,0.15);transform:translateY(-3px);box-shadow:0 15px 30px rgba(0,0,0,0.2)}
+        .timeline-date{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:0.6rem}
+        .timeline-title{font-family:var(--font-display);font-size:1.15rem;margin-bottom:0.4rem}
+        .timeline-desc{font-size:0.8rem;color:var(--text-dim);line-height:1.7}
+        .timeline-link{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:600;color:var(--gold);margin-top:0.6rem;letter-spacing:0.05em;text-transform:uppercase;transition:gap 0.3s}
         .timeline-link:hover{gap:0.6rem}
         .timeline-spacer{flex:1}
 
-        /* ═══════ FACILITIES — BENTO GRID ═══════
-           Not equal-sized cards. A BENTO BOX layout
-           where items have DIFFERENT sizes. */
+        /* ═══════ FACILITIES — Bento Grid ═══════ */
         .facilities{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2}
         .facilities-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
         .facilities-header{text-align:center;margin-bottom:4rem}
-        .facilities-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .facilities-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
         .facilities-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
 
         .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:1px;background:var(--glass-border)}
-        .bento-item{background:var(--void);padding:2.5rem;transition:all 0.5s var(--ease-out-expo);position:relative;overflow:hidden;cursor:default}
+        .bento-item{background:var(--void);padding:2.25rem;transition:all 0.5s var(--ease-out-expo);position:relative;overflow:hidden;cursor:default}
         .bento-item:hover{background:var(--surface)}
-        .bento-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.5s var(--ease-out-expo);transform-origin:left}
+        .bento-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--electric));transform:scaleX(0);transition:transform 0.5s var(--ease-out-expo);transform-origin:left}
         .bento-item:hover::before{transform:scaleX(1)}
-        .bento-item:nth-child(1){grid-column:span 2;grid-row:span 2;padding:3.5rem}
+        .bento-item:nth-child(1){grid-column:span 2;grid-row:span 2;padding:3rem}
         .bento-item:nth-child(4){grid-column:span 2}
-        .bento-icon{font-size:2rem;margin-bottom:1rem;transition:transform 0.4s var(--ease-spring)}
+        .bento-icon{font-size:1.8rem;margin-bottom:0.75rem;transition:transform 0.4s var(--ease-spring)}
         .bento-item:hover .bento-icon{transform:scale(1.15) rotate(-5deg)}
-        .bento-title{font-family:var(--font-display);font-size:1.1rem;margin-bottom:0.5rem}
-        .bento-item:nth-child(1) .bento-title{font-size:1.5rem}
-        .bento-desc{font-size:0.8rem;color:var(--text-dim);line-height:1.6}
-        .bento-num{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);letter-spacing:0.1em}
+        .bento-title{font-family:var(--font-display);font-size:1rem;margin-bottom:0.4rem}
+        .bento-item:nth-child(1) .bento-title{font-size:1.4rem}
+        .bento-desc{font-size:0.75rem;color:var(--text-dim);line-height:1.6}
+        .bento-num{position:absolute;top:1.25rem;right:1.25rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--text-muted);letter-spacing:0.1em}
 
-        /* ═══════ ADMISSION — SPLIT WITH GLASS FORM ═══════ */
-        .admission{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
-        .admission-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--surface),var(--void-light),var(--surface))}
-        .admission-bg::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:var(--gold);filter:blur(200px);opacity:0.04;top:-200px;right:-100px}
-        .admission-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
-        .admission-left .admission-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1.5rem}
-        .admission-heading{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;margin-bottom:1.5rem}
-        .admission-text{color:var(--text-dim);line-height:1.8;margin-bottom:2rem;max-width:450px}
-        .admission-checks{display:flex;flex-direction:column;gap:0.75rem}
-        .admission-check{display:flex;align-items:center;gap:0.75rem;font-size:0.85rem;color:var(--text-dim)}
-        .admission-check-icon{width:20px;height:20px;border-radius:50%;background:rgba(232,195,106,0.1);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--gold);flex-shrink:0}
-
-        .admission-form{background:var(--surface);border:1px solid var(--glass-border);padding:2.5rem;position:relative}
-        .admission-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--electric),var(--gold))}
-        .form-title{font-family:var(--font-display);font-size:1.5rem;margin-bottom:0.5rem}
-        .form-subtitle{font-size:0.8rem;color:var(--text-muted);margin-bottom:2rem}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-        .form-group{margin-bottom:1.25rem}
-        .form-label{display:block;font-size:0.65rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem}
-        .form-input{width:100%;padding:0.9rem 1rem;background:var(--void);border:1px solid var(--glass-border);color:var(--text);font-size:0.9rem;transition:all 0.3s;outline:none}
-        .form-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,195,106,0.1)}
-        .form-input::placeholder{color:var(--text-muted)}
-        textarea.form-input{resize:vertical;min-height:90px}
-        .form-submit{width:100%;padding:1rem;background:var(--gold);color:var(--void);font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-spring);margin-top:0.5rem}
-        .form-submit:hover{transform:scale(1.02);box-shadow:var(--glow-gold)}
-
-        /* ═══════ GALLERY — DIAGONAL STRIP ═══════ */
+        /* ═══════ GALLERY — Horizontal scroll strip ═══════ */
         .gallery{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
         .gallery-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
-        .gallery-header{text-align:center;margin-bottom:4rem}
-        .gallery-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .gallery-header{text-align:center;margin-bottom:3rem}
+        .gallery-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
         .gallery-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
 
-        .gallery-strip{display:flex;gap:1rem;overflow-x:auto;padding:2rem 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+        .gallery-strip{display:flex;gap:1rem;overflow-x:auto;padding:1.5rem 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
         .gallery-strip::-webkit-scrollbar{display:none}
-        .gallery-card{flex-shrink:0;width:300px;height:380px;scroll-snap-align:start;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;transition:all 0.5s var(--ease-out-expo)}
-        .gallery-card:hover{transform:translateY(-8px)}
-        .gallery-card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;transition:transform 0.5s var(--ease-out-expo)}
+        .gallery-card{flex-shrink:0;width:280px;height:350px;scroll-snap-align:start;position:relative;overflow:hidden;cursor:pointer;transition:all 0.5s var(--ease-out-expo);border:1px solid var(--glass-border)}
+        .gallery-card:hover{transform:translateY(-8px);border-color:rgba(232,195,106,0.15)}
+        .gallery-card-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;transition:transform 0.5s var(--ease-out-expo)}
         .gallery-card:hover .gallery-card-bg{transform:scale(1.1)}
         .gallery-card:nth-child(1) .gallery-card-bg{background:linear-gradient(135deg,#1a1a3e,#0a0a2a)}
         .gallery-card:nth-child(2) .gallery-card-bg{background:linear-gradient(135deg,#2a1a1a,#1a0a0a)}
@@ -298,41 +290,104 @@
         .gallery-card:nth-child(4) .gallery-card-bg{background:linear-gradient(135deg,#1a1a2a,#0a0a1a)}
         .gallery-card:nth-child(5) .gallery-card-bg{background:linear-gradient(135deg,#2a2a1a,#1a1a0a)}
         .gallery-card:nth-child(6) .gallery-card-bg{background:linear-gradient(135deg,#1a2a2a,#0a1a1a)}
-        .gallery-card-label{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-family:var(--font-display);font-size:1rem}
+        .gallery-card-label{position:absolute;bottom:0;left:0;right:0;padding:1.25rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-family:var(--font-display);font-size:0.95rem}
 
-        /* ═══════ CONTACT — ASYMMETRIC ═══════ */
+        /* ═══════ ADMISSION — Glass form ═══════ */
+        .admission{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
+        .admission-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--surface),var(--void-light),var(--surface))}
+        .admission-bg::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:var(--gold);filter:blur(200px);opacity:0.03;top:-150px;right:-100px}
+        .admission-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+        .admission-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1.5rem}
+        .admission-heading{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;margin-bottom:1.5rem}
+        .admission-text{color:var(--text-dim);line-height:1.8;margin-bottom:2rem;max-width:450px;font-size:0.92rem}
+        .admission-checks{display:flex;flex-direction:column;gap:0.6rem}
+        .admission-check{display:flex;align-items:center;gap:0.7rem;font-size:0.82rem;color:var(--text-dim)}
+        .admission-check-icon{width:18px;height:18px;border-radius:50%;background:rgba(232,195,106,0.1);display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:var(--gold);flex-shrink:0}
+
+        .admission-form{background:var(--glass);backdrop-filter:blur(30px);border:1px solid var(--glass-border);padding:2.25rem;position:relative;overflow:hidden}
+        .admission-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--electric),var(--violet),var(--gold));background-size:300% 100%;animation:gradientSlide 4s linear infinite}
+        @keyframes gradientSlide{to{background-position:300% 0}}
+        .form-title{font-family:var(--font-display);font-size:1.4rem;margin-bottom:0.4rem}
+        .form-subtitle{font-size:0.75rem;color:var(--text-muted);margin-bottom:1.75rem}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+        .form-group{margin-bottom:1rem}
+        .form-label{display:block;font-size:0.6rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.4rem}
+        .form-input{width:100%;padding:0.8rem 0.9rem;background:var(--void);border:1px solid var(--glass-border);color:var(--text);font-size:0.85rem;transition:all 0.3s;outline:none}
+        .form-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,195,106,0.08)}
+        .form-input::placeholder{color:var(--text-muted)}
+        textarea.form-input{resize:vertical;min-height:80px}
+        .form-submit{width:100%;padding:0.9rem;background:var(--gold);color:var(--void);font-weight:700;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.3s var(--ease-spring);margin-top:0.5rem;border-radius:0}
+        .form-submit:hover{transform:scale(1.02);box-shadow:var(--glow-gold)}
+
+        /* ═══════ FAQ — Accordion (MotionSites pattern) ═══════ */
+        .faq{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;background:var(--surface)}
+        .faq-inner{max-width:800px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .faq-header{text-align:center;margin-bottom:3rem}
+        .faq-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .faq-title{font-family:var(--font-display);font-size:clamp(2rem,3vw,3rem);line-height:1.1}
+
+        .faq-list{display:flex;flex-direction:column;gap:1px;background:var(--glass-border)}
+        .faq-item{background:var(--void);overflow:hidden}
+        .faq-question{width:100%;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:0.9rem;font-weight:500;text-align:left;transition:all 0.3s;gap:1rem}
+        .faq-question:hover{color:var(--gold)}
+        .faq-icon{width:24px;height:24px;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--gold);flex-shrink:0;transition:all 0.4s var(--ease-spring)}
+        .faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold);color:var(--void);border-color:var(--gold)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.5s var(--ease-out-expo),padding 0.5s}
+        .faq-answer-inner{padding:0 1.5rem 1.25rem;font-size:0.82rem;color:var(--text-dim);line-height:1.7}
+        .faq-item.open .faq-answer{max-height:300px}
+
+        /* ═══════ TESTIMONIALS — Slider (MotionSites pattern) ═══════ */
+        .testimonials{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;overflow:hidden}
+        .testimonials-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
+        .testimonials-header{text-align:center;margin-bottom:3rem}
+        .testimonials-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .testimonials-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);line-height:1.1}
+
+        .testimonial-track{display:flex;gap:1.5rem;overflow-x:auto;padding:1rem 0;scroll-snap-type:x mandatory;scrollbar-width:none}
+        .testimonial-track::-webkit-scrollbar{display:none}
+        .testimonial-card{flex-shrink:0;width:380px;scroll-snap-align:start;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);padding:2rem;transition:all 0.4s var(--ease-out-expo);position:relative}
+        .testimonial-card:hover{border-color:rgba(232,195,106,0.15);transform:translateY(-4px)}
+        .testimonial-card::before{content:'"';font-family:var(--font-display);font-size:4rem;color:var(--gold);opacity:0.15;position:absolute;top:0.5rem;left:1.5rem;line-height:1}
+        .testimonial-text{font-size:0.85rem;color:var(--text-dim);line-height:1.7;margin-bottom:1.25rem;position:relative;z-index:1;font-style:italic}
+        .testimonial-author{display:flex;align-items:center;gap:0.75rem}
+        .testimonial-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),var(--gold));display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--void);font-weight:700}
+        .testimonial-name{font-size:0.8rem;font-weight:600}
+        .testimonial-role{font-size:0.65rem;color:var(--text-muted)}
+
+        /* ═══════ CONTACT — Asymmetric ═══════ */
         .contact{padding:clamp(6rem,10vw,10rem) 0;position:relative;z-index:2;background:var(--surface)}
-        .contact-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1.2fr 1fr;gap:4rem}
+        .contact-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem);display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
         .contact-left{display:flex;flex-direction:column;gap:1.25rem}
-        .contact-tag{font-family:var(--font-mono);font-size:0.65rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+        .contact-tag{font-family:var(--font-mono);font-size:0.6rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
         .contact-heading{font-family:var(--font-display);font-size:clamp(2rem,3vw,3rem);line-height:1.1;margin-bottom:1.5rem}
-        .contact-card{display:flex;gap:1rem;padding:1.25rem;border:1px solid var(--glass-border);transition:all 0.4s var(--ease-out-expo)}
+        .contact-card{display:flex;gap:1rem;padding:1.15rem;border:1px solid var(--glass-border);transition:all 0.4s var(--ease-out-expo);background:var(--glass)}
         .contact-card:hover{border-color:rgba(232,195,106,0.15);transform:translateX(5px)}
-        .contact-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--void);border:1px solid var(--glass-border);flex-shrink:0;transition:all 0.3s}
+        .contact-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--void);border:1px solid var(--glass-border);flex-shrink:0;transition:all 0.3s}
         .contact-card:hover .contact-icon{border-color:var(--gold);background:rgba(232,195,106,0.05)}
-        .contact-label{font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.15rem}
-        .contact-value{font-size:0.9rem;font-weight:600}
+        .contact-label{font-size:0.55rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.1rem}
+        .contact-value{font-size:0.85rem;font-weight:600}
         .contact-map{border:1px solid var(--glass-border);overflow:hidden}
-        .contact-map iframe{width:100%;height:100%;min-height:400px;border:0;filter:invert(92%) hue-rotate(180deg) brightness(0.85) contrast(1.2) saturate(0.3)}
+        .contact-map iframe{width:100%;height:100%;min-height:380px;border:0;filter:invert(92%) hue-rotate(180deg) brightness(0.85) contrast(1.2) saturate(0.3)}
 
         /* ═══════ FOOTER ═══════ */
         .footer{border-top:1px solid var(--glass-border);padding:4rem 0 2rem;position:relative;z-index:2}
         .footer-inner{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,4rem)}
         .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
-        .footer-brand p{font-size:0.8rem;color:var(--text-dim);line-height:1.7;margin-top:1rem;max-width:300px}
-        .footer-heading{font-size:0.6rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.25em;margin-bottom:1.25rem}
-        .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-        .footer-links a{font-size:0.8rem;color:var(--text-dim);transition:all 0.3s}
+        .footer-brand p{font-size:0.78rem;color:var(--text-dim);line-height:1.7;margin-top:0.75rem;max-width:300px}
+        .footer-heading{font-size:0.55rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.25em;margin-bottom:1.25rem}
+        .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+        .footer-links a{font-size:0.78rem;color:var(--text-dim);transition:all 0.3s}
         .footer-links a:hover{color:var(--gold);padding-left:4px}
-        .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--glass-border);font-size:0.7rem;color:var(--text-muted);flex-wrap:wrap;gap:1rem}
+        .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--glass-border);font-size:0.65rem;color:var(--text-muted);flex-wrap:wrap;gap:1rem}
         .footer-social{display:flex;gap:0.5rem}
-        .footer-social a{width:32px;height:32px;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:all 0.3s var(--ease-spring)}
+        .footer-social a{width:30px;height:30px;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:0.8rem;transition:all 0.3s var(--ease-spring)}
         .footer-social a:hover{background:var(--gold);color:var(--void);border-color:var(--gold);transform:translateY(-2px)}
 
-        /* ═══════ BACK TO TOP ═══════ */
-        .to-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--gold);color:var(--void);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:9990;opacity:0;transform:translateY(20px);transition:all 0.4s var(--ease-spring)}
-        .to-top.show{opacity:1;transform:translateY(0)}
-        .to-top:hover{transform:translateY(-3px);box-shadow:var(--glow-gold)}
+        /* ═══════ FLOATING ELEMENTS — MotionSites decorative ═══════ */
+        .float-decor{position:fixed;pointer-events:none;z-index:0}
+        .float-decor-1{top:20%;left:5%;width:300px;height:300px;border:1px solid rgba(232,195,106,0.03);border-radius:50%;animation:floatDecor 30s linear infinite}
+        .float-decor-2{bottom:30%;right:5%;width:200px;height:200px;border:1px solid rgba(74,158,255,0.03);border-radius:50%;animation:floatDecor 25s linear infinite reverse}
+        @keyframes floatDecor{to{transform:rotate(360deg)}}
 
         /* ═══════ SCROLL REVEAL ═══════ */
         .sr{opacity:0;transform:translateY(50px);transition:all 0.9s var(--ease-out-expo)}
@@ -344,12 +399,17 @@
         .sr-scale{opacity:0;transform:scale(0.92);transition:all 0.9s var(--ease-out-expo)}
         .sr-scale.visible{opacity:1;transform:scale(1)}
 
+        /* ═══════ BACK TO TOP ═══════ */
+        .to-top{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--void);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.9rem;z-index:9990;opacity:0;transform:translateY(20px);transition:all 0.4s var(--ease-spring);border-radius:50%}
+        .to-top.show{opacity:1;transform:translateY(0)}
+        .to-top:hover{transform:translateY(-3px);box-shadow:var(--glow-gold)}
+
         /* ═══════ MOBILE ═══════ */
-        .mobile-nav{position:fixed;top:0;right:-100%;width:min(85vw,360px);height:100vh;background:var(--void);z-index:9995;padding:6rem 2rem 2rem;border-left:1px solid var(--glass-border);transition:right 0.5s var(--ease-out-expo)}
+        .mobile-nav{position:fixed;top:0;right:-100%;width:min(85vw,340px);height:100vh;background:rgba(5,5,16,0.95);backdrop-filter:blur(30px);z-index:9995;padding:6rem 2rem 2rem;border-left:1px solid var(--glass-border);transition:right 0.5s var(--ease-out-expo)}
         .mobile-nav.open{right:0}
         .mobile-nav-close{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;color:var(--text-dim)}
         .mobile-nav-links{list-style:none;display:flex;flex-direction:column;gap:0}
-        .mobile-nav-links a{display:block;padding:1rem 0;font-size:1.1rem;font-family:var(--font-display);color:var(--text-dim);border-bottom:1px solid var(--glass-border);transition:color 0.3s}
+        .mobile-nav-links a{display:block;padding:0.9rem 0;font-size:1rem;font-family:var(--font-display);color:var(--text-dim);border-bottom:1px solid var(--glass-border);transition:color 0.3s}
         .mobile-nav-links a:hover{color:var(--gold)}
         .mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9994;opacity:0;pointer-events:none;transition:opacity 0.3s}
         .mobile-overlay.open{opacity:1;pointer-events:auto}
@@ -357,13 +417,12 @@
         @media (prefers-reduced-motion:reduce){
             *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
         }
-
         @media (max-width:1024px){
             .hero-bottom{flex-direction:column;align-items:flex-start;gap:2rem}
             .about-inner{grid-template-columns:1fr}
             .about-right{order:-1}
             .stats-inner{grid-template-columns:1fr 1fr}
-            .stat:nth-child(even){transform:none}
+            .stat-card:nth-child(even){transform:none}
             .bento{grid-template-columns:1fr 1fr}
             .bento-item:nth-child(1){grid-column:span 2;grid-row:auto}
             .bento-item:nth-child(4){grid-column:span 1}
@@ -377,41 +436,41 @@
         }
         @media (max-width:768px){
             .nav-links{display:none}
-            .nav-mobile-btn{display:block}
+            .nav-mobile{display:block}
             .stats-inner{grid-template-columns:1fr 1fr}
             .bento{grid-template-columns:1fr}
             .bento-item:nth-child(1){grid-column:auto}
             .form-row{grid-template-columns:1fr}
             .footer-grid{grid-template-columns:1fr}
             .footer-bottom{flex-direction:column;text-align:center}
-            .cursor,.cursor-dot{display:none}
+            .cursor,.cursor-dot,.cursor-trail{display:none}
+            .testimonial-card{width:300px}
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Loader -->
     <div class="loader" id="loader">
-        <div class="loader-text">
+        <div class="loader-logo">
             <span style="animation-delay:0.1s">M</span><span style="animation-delay:0.15s">o</span><span style="animation-delay:0.2s">n</span><span style="animation-delay:0.25s">a</span><span style="animation-delay:0.35s"> </span><span style="animation-delay:0.4s">M</span><span style="animation-delay:0.45s">o</span><span style="animation-delay:0.5s">d</span><span style="animation-delay:0.55s">e</span><span style="animation-delay:0.6s">r</span><span style="animation-delay:0.65s">n</span>
         </div>
-        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+        <div class="loader-counter" id="loaderCounter">0%</div>
     </div>
 
     <div class="progress" id="progress"></div>
     <div class="cursor" id="cursor"></div>
     <div class="cursor-dot" id="cursorDot"></div>
 
+    <!-- Floating decorative elements -->
+    <div class="float-decor float-decor-1"></div>
+    <div class="float-decor float-decor-2"></div>
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo" aria-label="Home">
-                <div class="nav-logo-mark">
-                    <svg viewBox="0 0 44 44" fill="none">
-                        <circle cx="22" cy="22" r="20" stroke="var(--gold)" stroke-width="1.5" opacity="0.3"/>
-                        <circle cx="22" cy="22" r="14" stroke="var(--gold)" stroke-width="1"/>
-                        <text x="22" y="28" text-anchor="middle" fill="var(--gold)" font-family="var(--font-display)" font-size="20" font-weight="400">M</text>
-                    </svg>
-                </div>
+                <div class="nav-logo-mark"><span>M</span></div>
                 <div class="nav-logo-name">Mona Modern<small>Eng. Med. School · Sarangarh</small></div>
             </a>
             <div class="nav-links">
@@ -420,11 +479,12 @@
                 <a href="#events">Events</a>
                 <a href="#facilities">Facilities</a>
                 <a href="#gallery">Gallery</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
             </div>
-            <a href="#admission" class="nav-admission">Admissions Open</a>
-            <button class="nav-mobile-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg>
+            <a href="#admission" class="nav-cta">Admissions Open</a>
+            <button class="nav-mobile" id="menuBtn" aria-label="Menu" aria-expanded="false">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h16M3 12h16M3 17h16"/></svg>
             </button>
         </div>
     </nav>
@@ -439,6 +499,7 @@
             <li><a href="#events">Events</a></li>
             <li><a href="#facilities">Facilities</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#admission" style="color:var(--gold)">Admissions →</a></li>
         </ul>
@@ -446,10 +507,11 @@
 
     <!-- ═══════ HERO ═══════ -->
     <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="hero-gradient hero-gradient-1"></div>
-            <div class="hero-gradient hero-gradient-2"></div>
-            <div class="hero-grid-lines"></div>
+        <div class="hero-mesh">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-grid"></div>
         </div>
         <div class="hero-content">
             <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span>CBSE Affiliated · Est. 2011 · Sarangarh, CG</div>
@@ -468,13 +530,36 @@
         </div>
     </section>
 
-    <!-- ═══════ STATS — BROKEN GRID ═══════ -->
+    <!-- ═══════ MARQUEE STRIP ═══════ -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">CBSE Affiliated</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">4000+ Students</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">97% Top Score</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">150+ Faculty</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">15+ Years Legacy</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">Nursery to Class XII</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">Sarangarh, Chhattisgarh</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">Admissions Open 2026-27</span></div>
+            <!-- duplicate for seamless -->
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">CBSE Affiliated</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">4000+ Students</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">97% Top Score</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">150+ Faculty</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">15+ Years Legacy</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">Nursery to Class XII</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">Sarangarh, Chhattisgarh</span></div>
+            <div class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">Admissions Open 2026-27</span></div>
+        </div>
+    </div>
+
+    <!-- ═══════ STATS ═══════ -->
     <section class="stats">
         <div class="stats-inner">
-            <div class="stat sr"><div class="stat-number" data-target="4000">0</div><div class="stat-label">Students</div></div>
-            <div class="stat sr" style="transition-delay:0.1s"><div class="stat-number" data-target="150">0</div><div class="stat-label">Faculty</div></div>
-            <div class="stat sr" style="transition-delay:0.2s"><div class="stat-number" data-target="97">0</div><div class="stat-label">Top %</div></div>
-            <div class="stat sr" style="transition-delay:0.3s"><div class="stat-number" data-target="15">0</div><div class="stat-label">Years</div></div>
+            <div class="stat-card sr"><div class="stat-number" data-target="4000">0</div><div class="stat-label">Students</div></div>
+            <div class="stat-card sr" style="transition-delay:0.1s"><div class="stat-number" data-target="150">0</div><div class="stat-label">Faculty</div></div>
+            <div class="stat-card sr" style="transition-delay:0.2s"><div class="stat-number" data-target="97">0</div><div class="stat-label">Top %</div></div>
+            <div class="stat-card sr" style="transition-delay:0.3s"><div class="stat-number" data-target="15">0</div><div class="stat-label">Years</div></div>
         </div>
     </section>
 
@@ -493,11 +578,13 @@
                 </div>
             </div>
             <div class="about-right sr-right">
-                <div class="about-quote-card">
-                    <div class="about-float-badge">✦ Vision</div>
-                    <div class="about-quote-mark">"</div>
-                    <blockquote class="about-quote">Our vision is to empower students to acquire, demonstrate, articulate and value knowledge and skills that will support them as life-long learners, to participate in and contribute to the global world and practice the core values of the school: respect, tolerance & inclusion, and excellence.</blockquote>
-                    <div class="about-quote-author">— School Vision Statement</div>
+                <div class="about-quote-wrap">
+                    <div class="about-quote-card">
+                        <div class="about-float-badge">✦ Vision</div>
+                        <div class="about-quote-mark">"</div>
+                        <blockquote class="about-quote">Our vision is to empower students to acquire, demonstrate, articulate and value knowledge and skills that will support them as life-long learners, to participate in and contribute to the global world and practice the core values of the school: respect, tolerance & inclusion, and excellence.</blockquote>
+                        <div class="about-quote-author">— School Vision Statement</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -507,16 +594,13 @@
     <section class="toppers" id="toppers">
         <div class="toppers-inner">
             <div class="toppers-header sr">
-                <div>
-                    <h2 class="toppers-title">Shining Stars<span class="year">Board Results 2025-26</span></h2>
-                </div>
+                <h2 class="toppers-title">Shining Stars<span class="year">Board Results 2025-26</span></h2>
                 <div class="toppers-tabs">
                     <button class="toppers-tab active" data-tab="10">Class 10</button>
                     <button class="toppers-tab" data-tab="12">Class 12</button>
                 </div>
             </div>
             <div class="toppers-grid sr-scale" id="toppersGrid">
-                <!-- Class 10 -->
                 <div class="topper" data-class="10"><div class="topper-rank">RANK 01</div><div class="topper-avatar">🥇</div><div class="topper-name">Yash Patel</div><div class="topper-score">97.2%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:97.2%"></div></div>
                 <div class="topper" data-class="10"><div class="topper-rank">RANK 02</div><div class="topper-avatar">🥈</div><div class="topper-name">Ritika Dewangan</div><div class="topper-score">97%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:97%"></div></div>
                 <div class="topper" data-class="10"><div class="topper-rank">RANK 03</div><div class="topper-avatar">🥉</div><div class="topper-name">Arman Ratnakar</div><div class="topper-score">96.2%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:96.2%"></div></div>
@@ -527,7 +611,6 @@
                 <div class="topper" data-class="10"><div class="topper-rank">RANK 06</div><div class="topper-avatar">✦</div><div class="topper-name">Chitransh Patel</div><div class="topper-score">93.4%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93.4%"></div></div>
                 <div class="topper" data-class="10"><div class="topper-rank">RANK 07</div><div class="topper-avatar">✦</div><div class="topper-name">Jahanvi Patel</div><div class="topper-score">93.2%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93.2%"></div></div>
                 <div class="topper" data-class="10"><div class="topper-rank">RANK 08</div><div class="topper-avatar">✦</div><div class="topper-name">Pratibha Jaiswal</div><div class="topper-score">93%</div><div class="topper-class">Class 10</div><div class="topper-bar" style="--w:93%"></div></div>
-                <!-- Class 12 (hidden by default) -->
                 <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 01</div><div class="topper-avatar">🥇</div><div class="topper-name">Khushi Agrawal</div><div class="topper-score">96%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:96%"></div></div>
                 <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 02</div><div class="topper-avatar">🥈</div><div class="topper-name">Ayush Agrawal</div><div class="topper-score">94.2%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:94.2%"></div></div>
                 <div class="topper" data-class="12" style="display:none"><div class="topper-rank">RANK 03</div><div class="topper-avatar">🥉</div><div class="topper-name">Mahi Kesharwani</div><div class="topper-score">94%</div><div class="topper-class">Class 12</div><div class="topper-bar" style="--w:94%"></div></div>
@@ -542,7 +625,7 @@
         </div>
     </section>
 
-    <!-- ═══════ EVENTS — TIMELINE ═══════ -->
+    <!-- ═══════ EVENTS ═══════ -->
     <section class="events" id="events">
         <div class="events-inner">
             <div class="events-header sr">
@@ -550,51 +633,15 @@
                 <h2 class="events-title">Events & Activities</h2>
             </div>
             <div class="timeline">
-                <div class="timeline-item sr">
-                    <div class="timeline-content">
-                        <div class="timeline-date">19 June 2026</div>
-                        <h3 class="timeline-title">Prophylaxis Health Screening</h3>
-                        <p class="timeline-desc">Comprehensive health checkup camp for all students ensuring their wellbeing and early detection of health issues.</p>
-                        <a href="https://www.monacg.in/prophylaxis-health-screening-19-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
-                    </div>
-                    <div class="timeline-spacer"></div>
-                    <div class="timeline-dot"></div>
-                </div>
-                <div class="timeline-item sr">
-                    <div class="timeline-spacer"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">21 June 2026</div>
-                        <h3 class="timeline-title">International Yoga Day</h3>
-                        <p class="timeline-desc">Students and faculty celebrate the ancient practice of yoga, promoting physical and mental wellness across campus.</p>
-                        <a href="https://www.monacg.in/international-yoga-day-21-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-                <div class="timeline-item sr">
-                    <div class="timeline-content">
-                        <div class="timeline-date">June 2026</div>
-                        <h3 class="timeline-title">Father's Day Celebration</h3>
-                        <p class="timeline-desc">A heartfelt celebration honoring fathers with performances, speeches, and creative activities by students.</p>
-                        <a href="https://www.monacg.in/fathers-day-celebration-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
-                    </div>
-                    <div class="timeline-spacer"></div>
-                    <div class="timeline-dot"></div>
-                </div>
-                <div class="timeline-item sr">
-                    <div class="timeline-spacer"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">27 June 2026</div>
-                        <h3 class="timeline-title">Coffee Making Activity</h3>
-                        <p class="timeline-desc">A fun hands-on activity where students learn the art of coffee making, building life skills and creativity.</p>
-                        <a href="https://www.monacg.in/coffee-making-activity-27-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
+                <div class="timeline-item sr"><div class="timeline-content"><div class="timeline-date">19 June 2026</div><h3 class="timeline-title">Prophylaxis Health Screening</h3><p class="timeline-desc">Comprehensive health checkup camp for all students ensuring their wellbeing.</p><a href="https://www.monacg.in/prophylaxis-health-screening-19-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a></div><div class="timeline-spacer"></div><div class="timeline-dot"></div></div>
+                <div class="timeline-item sr"><div class="timeline-spacer"></div><div class="timeline-content"><div class="timeline-date">21 June 2026</div><h3 class="timeline-title">International Yoga Day</h3><p class="timeline-desc">Students and faculty celebrate yoga, promoting physical and mental wellness.</p><a href="https://www.monacg.in/international-yoga-day-21-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a></div><div class="timeline-dot"></div></div>
+                <div class="timeline-item sr"><div class="timeline-content"><div class="timeline-date">June 2026</div><h3 class="timeline-title">Father's Day Celebration</h3><p class="timeline-desc">Heartfelt celebration honoring fathers with performances and creative activities.</p><a href="https://www.monacg.in/fathers-day-celebration-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a></div><div class="timeline-spacer"></div><div class="timeline-dot"></div></div>
+                <div class="timeline-item sr"><div class="timeline-spacer"></div><div class="timeline-content"><div class="timeline-date">27 June 2026</div><h3 class="timeline-title">Coffee Making Activity</h3><p class="timeline-desc">Fun hands-on activity where students learn the art of coffee making.</p><a href="https://www.monacg.in/coffee-making-activity-27-june-2026/" class="timeline-link" target="_blank" rel="noopener">Details →</a></div><div class="timeline-dot"></div></div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════ FACILITIES — BENTO ═══════ -->
+    <!-- ═══════ FACILITIES ═══════ -->
     <section class="facilities" id="facilities">
         <div class="facilities-inner">
             <div class="facilities-header sr">
@@ -604,15 +651,15 @@
             <div class="bento sr-scale">
                 <div class="bento-item"><span class="bento-num">01</span><div class="bento-icon">🔬</div><h3 class="bento-title">Science Laboratories</h3><p class="bento-desc">Fully equipped Physics, Chemistry, and Biology labs where curiosity meets discovery. Hands-on experiments that bring textbooks to life.</p></div>
                 <div class="bento-item"><span class="bento-num">02</span><div class="bento-icon">💻</div><h3 class="bento-title">Computer Lab</h3><p class="bento-desc">Latest hardware and software for digital literacy and coding education.</p></div>
-                <div class="bento-item"><span class="bento-num">03</span><div class="bento-icon">📚</div><h3 class="bento-title">Library</h3><p class="bento-desc">Vast collection of books, journals, and digital resources for research and reading.</p></div>
-                <div class="bento-item"><span class="bento-num">04</span><div class="bento-icon">🏃</div><h3 class="bento-title">Sports Complex</h3><p class="bento-desc">Spacious playgrounds and indoor facilities for cricket, football, basketball, and athletics. Champions are built here.</p></div>
+                <div class="bento-item"><span class="bento-num">03</span><div class="bento-icon">📚</div><h3 class="bento-title">Library</h3><p class="bento-desc">Vast collection of books, journals, and digital resources.</p></div>
+                <div class="bento-item"><span class="bento-num">04</span><div class="bento-icon">🏃</div><h3 class="bento-title">Sports Complex</h3><p class="bento-desc">Spacious playgrounds and indoor facilities for cricket, football, basketball, and athletics.</p></div>
                 <div class="bento-item"><span class="bento-num">05</span><div class="bento-icon">🎨</div><h3 class="bento-title">Art & Music</h3><p class="bento-desc">Dedicated spaces for classical dance, music, and visual arts.</p></div>
-                <div class="bento-item"><span class="bento-num">06</span><div class="bento-icon">🏫</div><h3 class="bento-title">Smart Classrooms</h3><p class="bento-desc">Technology-enabled with projectors and digital boards for interactive learning.</p></div>
+                <div class="bento-item"><span class="bento-num">06</span><div class="bento-icon">🏫</div><h3 class="bento-title">Smart Classrooms</h3><p class="bento-desc">Technology-enabled with projectors and digital boards.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════ GALLERY — SCROLL STRIP ═══════ -->
+    <!-- ═══════ GALLERY ═══════ -->
     <section class="gallery" id="gallery">
         <div class="gallery-inner">
             <div class="gallery-header sr">
@@ -620,16 +667,14 @@
                 <h2 class="gallery-title">Captured <span style="font-style:italic;color:var(--gold)">Joy</span></h2>
             </div>
             <div class="gallery-strip sr">
-                <div class="gallery-card"><div class="gallery-card-bg">🎓</div><div class="gallery-card-label">Annual Day Celebration</div></div>
+                <div class="gallery-card"><div class="gallery-card-bg">🎓</div><div class="gallery-card-label">Annual Day</div></div>
                 <div class="gallery-card"><div class="gallery-card-bg">🏆</div><div class="gallery-card-label">Prize Distribution</div></div>
                 <div class="gallery-card"><div class="gallery-card-bg">🎭</div><div class="gallery-card-label">Cultural Program</div></div>
                 <div class="gallery-card"><div class="gallery-card-bg">⚽</div><div class="gallery-card-label">Sports Day</div></div>
                 <div class="gallery-card"><div class="gallery-card-bg">🧘</div><div class="gallery-card-label">Yoga Day</div></div>
                 <div class="gallery-card"><div class="gallery-card-bg">🔬</div><div class="gallery-card-label">Science Exhibition</div></div>
             </div>
-            <div style="text-align:center;margin-top:2rem" class="sr">
-                <a href="https://www.monacg.in/our-gallery/" class="btn btn-ghost" target="_blank" rel="noopener">Full Gallery →</a>
-            </div>
+            <div style="text-align:center;margin-top:2rem" class="sr"><a href="https://www.monacg.in/our-gallery/" class="btn btn-ghost" target="_blank" rel="noopener">Full Gallery →</a></div>
         </div>
     </section>
 
@@ -637,7 +682,7 @@
     <section class="admission" id="admission">
         <div class="admission-bg"></div>
         <div class="admission-inner">
-            <div class="admission-left sr-left">
+            <div class="sr-left">
                 <div class="admission-tag">Join the Family</div>
                 <h2 class="admission-heading">Admissions<br><span style="color:var(--gold)">Open 2026-27</span></h2>
                 <p class="admission-text">Give your child the gift of excellence. At Mona Modern, every student is seen, heard, and empowered to reach their highest potential.</p>
@@ -667,6 +712,66 @@
         </div>
     </section>
 
+    <!-- ═══════ FAQ — Accordion ═══════ -->
+    <section class="faq" id="faq">
+        <div class="faq-inner">
+            <div class="faq-header sr">
+                <div class="faq-tag">Questions</div>
+                <h2 class="faq-title">Frequently <span style="font-style:italic;color:var(--gold)">Asked</span></h2>
+            </div>
+            <div class="faq-list sr">
+                <div class="faq-item">
+                    <button class="faq-question">What curriculum does Mona Modern follow?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Mona Modern is affiliated with CBSE (Central Board of Secondary Education) and follows the national curriculum framework from Nursery to Class XII.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What are the school timings?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">School operates Monday to Saturday. Office hours are 8:00 AM to 3:00 PM. Specific class timings are shared during admission.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is there a scholarship program?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes, Mona Modern offers scholarships for meritorious students based on their academic performance and entrance test results.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What facilities are available?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">The school has fully equipped science labs, computer lab, library, sports complex, art & music rooms, and smart classrooms with digital boards.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How can I apply for admission?<span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><div class="faq-answer-inner">You can fill out the admission enquiry form on this page, visit the school office, or download the admission form from our website at monacg.in.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ TESTIMONIALS ═══════ -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-inner">
+            <div class="testimonials-header sr">
+                <div class="testimonials-tag">Voices</div>
+                <h2 class="testimonials-title">What <span style="font-style:italic;color:var(--gold)">Parents</span> Say</h2>
+            </div>
+            <div class="testimonial-track sr">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Mona Modern has transformed my child's academic journey. The teachers are dedicated and the environment is nurturing. Best decision we made."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">R</div><div><div class="testimonial-name">Rajesh Patel</div><div class="testimonial-role">Parent — Class 10</div></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The school focuses on overall development — academics, sports, arts. My daughter scored 96% and we owe it to the incredible faculty here."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Sunita Agrawal</div><div class="testimonial-role">Parent — Class 12</div></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"From smart classrooms to the sports complex, the infrastructure is world-class. My son loves going to school every day."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">M</div><div><div class="testimonial-name">Manoj Sahu</div><div class="testimonial-role">Parent — Class 8</div></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The admission process was smooth and the staff was very helpful. Mona Modern truly lives up to its reputation in Sarangarh."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">P</div><div><div class="testimonial-name">Priya Kesharwani</div><div class="testimonial-role">Parent — Class 6</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════ CONTACT ═══════ -->
     <section class="contact" id="contact">
         <div class="contact-inner">
@@ -689,9 +794,9 @@
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <div style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:0.25rem">Mona Modern</div>
-                    <p>Empowering students since 2011 with excellence, respect, and innovation. CBSE affiliated English Medium School in Sarangarh, Chhattisgarh.</p>
-                    <div class="footer-social" style="margin-top:1rem">
+                    <div style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:0.2rem">Mona Modern</div>
+                    <p>Empowering students since 2011 with excellence, respect, and innovation. CBSE affiliated school in Sarangarh, Chhattisgarh.</p>
+                    <div class="footer-social" style="margin-top:0.75rem">
                         <a href="https://www.facebook.com/Mona-Modern-English-Medium-School-Sarangarh-CG-2031982403702900/" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
                         <a href="https://twitter.com/monaschool_sgh" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
                         <a href="https://www.youtube.com/channel/UCObWS5z508wg8ZGpiCx5YpA" target="_blank" rel="noopener" aria-label="YouTube">▶️</a>
@@ -714,31 +819,49 @@
     (function(){
         'use strict';
 
-        // ═══════ LOADER ═══════
+        // ═══════ LOADER with counter ═══════
+        const loader = document.getElementById('loader');
+        const loaderCounter = document.getElementById('loaderCounter');
+        let loadProgress = 0;
+        const loadInterval = setInterval(() => {
+            loadProgress += Math.random() * 15;
+            if(loadProgress > 100) loadProgress = 100;
+            loaderCounter.textContent = Math.floor(loadProgress) + '%';
+            if(loadProgress >= 100) clearInterval(loadInterval);
+        }, 100);
         window.addEventListener('load', () => {
-            setTimeout(() => document.getElementById('loader').classList.add('done'), 2000);
+            setTimeout(() => { loader.classList.add('done'); clearInterval(loadInterval); }, 2200);
         });
 
-        // ═══════ CUSTOM CURSOR ═══════
+        // ═══════ CUSTOM CURSOR with trail ═══════
         const cursor = document.getElementById('cursor');
         const cursorDot = document.getElementById('cursorDot');
-        let cx = 0, cy = 0, dx = 0, dy = 0;
-
-        document.addEventListener('mousemove', e => {
-            dx = e.clientX; dy = e.clientY;
-            cursorDot.style.left = dx + 'px';
-            cursorDot.style.top = dy + 'px';
-        });
-        function updateCursor(){
-            cx += (dx - cx) * 0.15;
-            cy += (dy - cy) * 0.15;
-            cursor.style.left = cx + 'px';
-            cursor.style.top = cy + 'px';
-            requestAnimationFrame(updateCursor);
+        const trails = [];
+        for(let i = 0; i < 5; i++){
+            const t = document.createElement('div');
+            t.className = 'cursor-trail';
+            t.style.background = `rgba(232,195,106,${0.15 - i * 0.025})`;
+            t.style.width = (8 - i) + 'px';
+            t.style.height = (8 - i) + 'px';
+            document.body.appendChild(t);
+            trails.push({el: t, x: 0, y: 0});
         }
-        updateCursor();
-
-        document.querySelectorAll('a, button, .topper, .gallery-card, .bento-item, .contact-card').forEach(el => {
+        let mx = 0, my = 0, cx = 0, cy = 0;
+        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursorDot.style.left = mx+'px'; cursorDot.style.top = my+'px'; });
+        function animateCursor(){
+            cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12;
+            cursor.style.left = cx+'px'; cursor.style.top = cy+'px';
+            let px = cx, py = cy;
+            trails.forEach(t => {
+                t.x += (px - t.x) * 0.2; t.y += (py - t.y) * 0.2;
+                t.el.style.left = t.x+'px'; t.el.style.top = t.y+'px';
+                t.el.style.opacity = '1';
+                px = t.x; py = t.y;
+            });
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        document.querySelectorAll('a,button,.topper,.gallery-card,.bento-item,.contact-card,.faq-question,.testimonial-card').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
         });
@@ -747,7 +870,6 @@
         const nav = document.getElementById('nav');
         const toTop = document.getElementById('toTop');
         const progress = document.getElementById('progress');
-
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
             nav.classList.toggle('scrolled', y > 50);
@@ -762,11 +884,7 @@
         const menuClose = document.getElementById('menuClose');
         const mobileNav = document.getElementById('mobileNav');
         const mobileOverlay = document.getElementById('mobileOverlay');
-        function toggleMenu(o){
-            mobileNav.classList.toggle('open',o);
-            mobileOverlay.classList.toggle('open',o);
-            document.body.style.overflow = o?'hidden':'';
-        }
+        function toggleMenu(o){ mobileNav.classList.toggle('open',o); mobileOverlay.classList.toggle('open',o); document.body.style.overflow = o?'hidden':''; }
         menuBtn.addEventListener('click',()=>toggleMenu(true));
         menuClose.addEventListener('click',()=>toggleMenu(false));
         mobileOverlay.addEventListener('click',()=>toggleMenu(false));
@@ -785,8 +903,7 @@
                 const el = e.target, target = parseInt(el.dataset.target);
                 let cur = 0; const inc = target / 50;
                 const t = setInterval(() => {
-                    cur += inc;
-                    if(cur >= target){ cur = target; clearInterval(t); }
+                    cur += inc; if(cur >= target){ cur = target; clearInterval(t); }
                     el.textContent = Math.floor(cur) + (target > 100 ? '+' : target === 97 ? '%' : '+');
                 }, 30);
                 cObs.unobserve(el);
@@ -800,52 +917,44 @@
                 document.querySelectorAll('.toppers-tab').forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 const cls = tab.dataset.tab;
-                document.querySelectorAll('.topper').forEach(c => {
-                    c.style.display = c.dataset.class === cls ? '' : 'none';
-                });
+                document.querySelectorAll('.topper').forEach(c => { c.style.display = c.dataset.class === cls ? '' : 'none'; });
             });
         });
 
         // ═══════ TOPPER BAR ANIMATION ═══════
         const tObs = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if(e.isIntersecting){
-                    e.target.style.width = getComputedStyle(e.target).getPropertyValue('--w');
-                    tObs.unobserve(e.target);
-                }
-            });
+            entries.forEach(e => { if(e.isIntersecting){ e.target.style.width = getComputedStyle(e.target).getPropertyValue('--w'); tObs.unobserve(e.target); }});
         }, {threshold:0.3});
         document.querySelectorAll('.topper-bar').forEach(el => tObs.observe(el));
+
+        // ═══════ FAQ ACCORDION ═══════
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if(!isOpen) item.classList.add('open');
+            });
+        });
 
         // ═══════ FORM ═══════
         document.getElementById('admissionForm').addEventListener('submit', function(e){
             e.preventDefault();
             const btn = this.querySelector('.form-submit');
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
+            btn.textContent = 'Sending...'; btn.disabled = true;
             setTimeout(()=>{
-                btn.textContent = '✓ Submitted!';
-                btn.style.background = '#10b981';
-                setTimeout(()=>{
-                    btn.textContent = 'Submit Enquiry ✦';
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    this.reset();
-                },3000);
-            },1500);
+                btn.textContent = '✓ Submitted!'; btn.style.background = '#10b981';
+                setTimeout(()=>{ btn.textContent = 'Submit Enquiry ✦'; btn.style.background = ''; btn.disabled = false; this.reset(); }, 3000);
+            }, 1500);
         });
 
         // ═══════ SMOOTH SCROLL ═══════
         document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e){
-                e.preventDefault();
-                const t = document.querySelector(this.getAttribute('href'));
-                if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-            });
+            a.addEventListener('click', function(e){ e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth',block:'start'}); });
         });
 
         // ═══════ MAGNETIC BUTTONS ═══════
-        document.querySelectorAll('.btn-gold, .nav-admission').forEach(btn => {
+        document.querySelectorAll('.btn-gold,.nav-cta').forEach(btn => {
             btn.addEventListener('mousemove', e => {
                 const r = btn.getBoundingClientRect();
                 btn.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px) scale(1.05)`;
@@ -857,9 +966,7 @@
         document.querySelectorAll('.topper').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const r = card.getBoundingClientRect();
-                const x = (e.clientY - r.top - r.height/2) / 12;
-                const y = -(e.clientX - r.left - r.width/2) / 12;
-                card.style.transform = `perspective(800px) rotateX(${x}deg) rotateY(${y}deg)`;
+                card.style.transform = `perspective(800px) rotateX(${(e.clientY-r.top-r.height/2)/12}deg) rotateY(${-(e.clientX-r.left-r.width/2)/12}deg)`;
             });
             card.addEventListener('mouseleave', () => { card.style.transform = ''; });
         });
@@ -868,4 +975,3 @@
     </script>
 </body>
 </html>
-<!-- rebuild -->
